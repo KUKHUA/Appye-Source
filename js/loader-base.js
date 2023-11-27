@@ -1,3 +1,13 @@
+const winboxscript = document.createElement("winboxscript");
+// load dep
+winboxscript.src = "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/dependencies/0.2.6_winbox.bundle.min.js"
+
+// might want to improve this to load from this alt url: 
+// https://rawcdn.githack.com/nextapps-de/winbox/0.2.6/dist/winbox.bundle.min.js";
+
+document.head.appendChild(winboxscript);
+
+
 function firstSuccess(promises) {
   let failures = []
   let remaining = promises.length
