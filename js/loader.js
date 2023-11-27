@@ -1,4 +1,4 @@
-const winboxscript = document.createElement("winboxscript");
+const winboxscript = document.createElement("script");
 // load dep
 winboxscript.src = "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/dependencies/0.2.6_winbox.bundle.min.js"
 
