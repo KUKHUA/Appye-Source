@@ -21,11 +21,8 @@ function firstSuccess(promises) {
 
 // The list of URLs. The first success will be loaded.
 const URLS = [
-  "https://raw.githubusercontent.com/appyeorg/PUBLIC-TESTING/main/proda.js",
-  //"https://e.pool.nyphp.com/cp/https/raw.githubusercontent.com/KUKHUA/chc-testing/main/proda.js",
-  //"https://e.pool.nyphp.com/cors/appye/proda.js",
-  "https://raw.githack.com/appyeorg/PUBLIC-TESTING/main/proda.js",
-  "https://cz.cyou/gh/https://raw.githubusercontent.com/appyeorg/PUBLIC-TESTING/main/proda.js",
+  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
+  "https://e.pool.nyphp.com/cp/https/basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
 ]
 
 const fetchAborter = new AbortController()
@@ -59,6 +56,7 @@ firstSuccess(
   // If we're here, a fetch succeeded, so abort the other ones.
   fetchAborter.abort()
   // Run the parsed code.
+  //this needs to be changed to a script element.
   appye()
 })
 .catch(err => {
