@@ -32,7 +32,7 @@ function firstSuccess(promises) {
 // The list of URLs. The first success will be loaded.
 const URLS = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
-  "https://e.pool.nyphp.com/cp/https/basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
+  "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
 ]
 
 const fetchAborter = new AbortController()
