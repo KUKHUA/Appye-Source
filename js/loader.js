@@ -33,6 +33,7 @@ function firstSuccess(promises) {
 const URLS = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
   "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
+  "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYmV0YS5qcw==",
 ]
 
 const fetchAborter = new AbortController()
