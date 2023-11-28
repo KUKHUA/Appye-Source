@@ -71,6 +71,13 @@ firstSuccess(
   appye()
 })
 .catch(err => {
-  alert("Failed to load the script: " + err.message + ". Try to use the website that is about to open.")
-  open("https://www.desmos.com/testing/virginia/graphing")
+  alert("Failed to load the script: " + err.message + ".");
+  if(!window.location.hostname == "desmos.com"){
+  alert("Try to use the website that is about to open.");
+  open("https://www.desmos.com/testing/virginia/graphing");
+  } else if (window.navigator.onLine == false){
+ alert("Please connect to the internet.");
+  }else {
+    alert('This is the error that idk how to fix.  pls help nathan.');
+  }
 })
