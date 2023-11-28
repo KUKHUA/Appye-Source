@@ -53,7 +53,7 @@ appyeApi.createCommand(
       alert(
         'Could not find the app "' +
           parseApp +
-          '" in the database, please check "ls apps" to see if you missspelled it.'
+          '" in the database, please check "ls apps" to see if you misspelled it.'
       );
     }
   },
@@ -193,7 +193,7 @@ appyeApi.createCommand(
   {
     humanName: "Search",
     vendor: "AppyeSYS",
-    desc: "Default command, allows you to search, using SearX by default.",
+    desc: "Default command. Allows you to search using SearX by default.",
     tags: ["searx","google","search","sys"],
     examples: ["search free Anti-Virus for ChromeOS"],
     sys: true
@@ -468,7 +468,7 @@ appyeApi.createApp(
   },
   {
 vendor:"luck",
-desc:"a game where avoid falling off a platform and dodge obbjects; also ur a ball"
+desc:"A game where you control a rolling ball and try to dodge obstacles while staying on the platform."
   }
 );
 
@@ -482,7 +482,7 @@ appyeApi.createApp(
   },
   {
     vendor:"luck",
-    desc:" a game where a ball break da walls"
+    desc:"A game where the balls break the walls."
   }
 );
 
@@ -497,7 +497,7 @@ appyeApi.createApp(
  },
  {
   vendor:"luck",
-  desc:"a endless side-scroll action runner"
+  desc:"An endless side-scroll action runner."
  }
 
 );
@@ -512,7 +512,7 @@ appyeApi.createApp(
   },
   {
     vendor:"luck",
-    desc:"you do stuff with ducks, like feed dem."
+    desc:"You do stuff with ducks, like feed them."
   }
 );
 appyeApi.createApp(
@@ -525,7 +525,7 @@ appyeApi.createApp(
   },
   {
     vendor: "luck",
-    desc:"you click cookies for more and more cookies"
+    desc:"You click cookies for more and more cookies."
   }
 );
 appyeApi.createApp(
@@ -540,7 +540,7 @@ appyeApi.createApp(
   },
   {
     vendor: "luck",
-    desc:"try not to die as you run trough the colorful tunnels, reaction speed is key."
+    desc:"Try not to die as you run through the colorful tunnels. Reaction speed is key."
   }
 );
 appyeApi.createApp(
@@ -553,7 +553,7 @@ appyeApi.createApp(
   },
   {
     vendor: "luck",
-    desc: "It's a proxy. Unblock your hotspot forforfor better combatpatilty (contact luck)."
+    desc: "It's a proxy. Unblock your hotspot for better compatilty (contact luck)."
   }
 )
 
@@ -627,7 +627,7 @@ function cmd() {
   var commandStart = "";
   commandIn = prompt("Command:");
   if (commandIn == "" || commandIn == " "){
-    alert("Hint: You can click the cancel button.");
+    alert("Hint: You can click the cancel button or press Escape.");
     return;
   } else if (commandIn == null){
     return;
