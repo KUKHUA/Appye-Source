@@ -1,13 +1,3 @@
-const winboxscript = document.createElement("script");
-// load dep
-winboxscript.src = "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/dependencies/0.2.6_winbox.bundle.min.js"
-
-// might want to improve this to load from this alt url on error: 
-// https://rawcdn.githack.com/nextapps-de/winbox/0.2.6/dist/winbox.bundle.min.js";
-
-document.head.appendChild(winboxscript);
-
-
 function firstSuccess(promises) {
   let failures = []
   let remaining = promises.length
@@ -72,12 +62,10 @@ firstSuccess(
 })
 .catch(err => {
   alert("Failed to load the script: " + err.message + ".");
-  if(!window.location.hostname == "desmos.com"){
+  if(!window.location.hostname == "www.desmos.com"){
   alert("Try to use the website that is about to open.");
   open("https://www.desmos.com/testing/virginia/graphing");
   } else if (window.navigator.onLine == false){
  alert("Please connect to the internet.");
-  }else {
-    alert('This is the error that idk how to fix.  pls help nathan.');
   }
 })
