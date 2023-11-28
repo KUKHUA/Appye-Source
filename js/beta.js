@@ -3,7 +3,7 @@
 // load winbox
 const script = document.createElement("script");
 script.src =
-"https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/dependencies/0.2.6_winbox.bundle.min.js";
+"https://rawcdn.githack.com/nextapps-de/winbox/0.2.6/dist/winbox.bundle.min.js";
 document.head.appendChild(script);
 
 
