@@ -1,6 +1,11 @@
 /// <reference path="types.d.ts" />
 
 // load winbox
+const script = document.createElement("script");
+script.src =
+"https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/dependencies/0.2.6_winbox.bundle.min.js";
+document.head.appendChild(script);
+
 
 //set the version
 const ver = "Private+2.3.1";
