@@ -19,6 +19,18 @@ function firstSuccess(promises) {
   })
 }
 
+command = "";
+function intCmd(command){
+  var commandStart = "";
+  var commandIn = command;
+  commandStart = commandIn.split(" ")[0];
+  if (jsonAppObject.commands[commandStart]){
+    jsonAppObject.commands[commandStart](commandIn);
+  } else {
+    throw new Error("An internal service tried to call the " + commandStart + " command, but it dose not seem to exist.");
+  }
+}
+
 // The list of URLs. The first success will be loaded.
 const URLS = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
