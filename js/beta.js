@@ -590,25 +590,6 @@ document.addEventListener("keydown", (event) => {
       break;
     }});
 
-// Wait for the script to be loaded before calling cmd()
-script.addEventListener("load", function () {
-if(localStorage.getItem('ver') !== ver){
-  new WinBox({
-      title: "Appye has updated!!🎉",
-      modal:true,
-      url: updateUrl,
-      onclose: function(){
-        setTimeout(function (){
-        cmd();             
-        }, 300);
-      }
-  });
-  localStorage.setItem('ver',ver);
-  } else {
-    cmd();
-  }
-});
-
 function intCmd(command){
   var commandStart = "";
   var commandIn = command;
