@@ -19,7 +19,7 @@ function firstSuccess(promises) {
   })
  }
  
-function loadScript(urls) {
+ function loadScript(urls) {
   const fetchAborter = new AbortController();
  
   return firstSuccess(
@@ -32,15 +32,18 @@ function loadScript(urls) {
             throw new Error(resp.status + " " + resp.statusText);
           }
         })
-        .then(content => new Function(content))
+        .then(content => {
+          const script = document.createElement('script');
+          script.textContent = content;
+          document.body.appendChild(script);
+        })
     )
   )
     .catch(failures => {
       throw new Error(`All providers are offline or blocked`);
     })
-    .then(appye => {
+    .then(() => {
       fetchAborter.abort();
-      appye();
     })
     .catch(err => {
       alert("Failed to load the script: " + err.message + ".");
@@ -51,8 +54,7 @@ function loadScript(urls) {
         alert("Please connect to the internet.");
       }
     });
- }
- 
+}
  // The list of URLs. The first success will be loaded.
  const urlMain = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
