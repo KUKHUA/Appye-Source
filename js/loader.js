@@ -63,6 +63,9 @@ function firstSuccess(promises) {
  ];
  const urlDep = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/dependencies/0.2.6_winbox.bundle.min.js",
+  "https://nmn.pool.net.eu.org/cp/https/rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js",
+  "https://nmn.pool.net.eu.org/cp/https/raw.githubusercontent.com/nextapps-de/winbox/master/dist/winbox.bundle.min.js",
+  "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL25leHRhcHBzLWRlL3dpbmJveC9tYXN0ZXIvZGlzdC93aW5ib3guYnVuZGxlLm1pbi5qcw==",
   "https://rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js",
   "https://raw.githubusercontent.com/nextapps-de/winbox/master/dist/winbox.bundle.min.js"
  ]
