@@ -1,11 +1,3 @@
-/// <reference path="types.d.ts" />
-
-// load winbox
-const script = document.createElement("script");
-script.src =
-"https://rawcdn.githack.com/nextapps-de/winbox/0.2.6/dist/winbox.bundle.min.js";
-document.head.appendChild(script);
-
 
 //set the version
 const ver = "Private+2.3.1";
