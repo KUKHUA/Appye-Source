@@ -10,7 +10,7 @@ Appye is possibale in part thanks to [Winbox.JS](https://github.com/nextapps-de/
 
 ## Getting Started
 
-1. Go [here](https://raw.githubusercontent.com/KUKHUA/Apppye/main/bookmarklet.js).
+1. Go [here](https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/bookmarklet.js).
 2. Press CTRL+A, then CTRL+C.
 3. Open the bookmark bar (Press CTRL+SHIFT+B if not sure.)
 4. Right-click the bookmark bar and select "Add page..."
@@ -28,4 +28,4 @@ Under [	Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International]
 ## Structure
 - Builds of Appye, obfucated curently. **Path**:[/builds/offline/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/builds/offline)
 - Javascript source code, including the [loader](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/js/loader.js) and [main script](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/js/beta.js). **Path**: [/js/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/js)
-- Dependencies of Appye. This is for archival purposes (not loaded by Appye). **Path**: [/dependencies/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/dependencies)
+- Dependencies of Appye. **Path**: [/dependencies/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/dependencies)
