@@ -19,7 +19,7 @@ appyeApi.createApp(
   {
     title: "Piped",
     url: "https://piped.garudalinux.org",
-    icon:"https://piped.garudalinux.org/favicon.ico",
+    icon:"https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/icons/piped_icon.ico",
     background:"#D03024"
   },
   {
