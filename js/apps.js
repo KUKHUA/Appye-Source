@@ -3,7 +3,7 @@ appyeApi.createApp(
   {
     title: "Google",
     url: "https://www.google.com/?igu=1",
-    icon: "https://www.google.com/favicon.ico",
+    icon: "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/icons/google_icon.ico",
     background: "#bd8c91"
   },
   {
@@ -34,7 +34,7 @@ appyeApi.createApp(
   {
     title: "Subway Surfers",
     url: "https://rawcdn.githack.com/mark-deal/mark-deal.github.io/73bdb2d103ca2cae7b9274872da66de1c28404c6/subwaysurfers/index.html",
-    icon:"https://play-lh.googleusercontent.com/O4QJhBZV0vLyuY0dYLVjX6PA83kGkdLzHIdcYcyWVrMN9Mdt3IQDLGiR7iJdTm3TRk4=w240-h480-rw",
+    icon:"https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/icons/subway_icon.webp",
     background: "#FFC600"
   },
   {
@@ -48,7 +48,7 @@ appyeApi.createApp(
   {
     title: "Desmos",
     url: "https://www.desmos.com/graphing",
-    icon:"https://www.desmos.com/favicon.ico",
+    icon:"https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/icons/desmos_icon.ico",
     background: "#2F72DC"
   },
   {
@@ -62,7 +62,7 @@ appyeApi.createApp(
   {
     title:"Chat Room",
     url:'https://chat.basicfan.eu.org/#Appye:441c57ac4c6b7ab602397cac66d321957dd2fda0',
-    icon: "https://chat.basicfan.eu.org/gfx/icon_32x32.png",
+    icon: "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/icons/chat_icon.png",
     background:"#181A1D"
   },
   {
