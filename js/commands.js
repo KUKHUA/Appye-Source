@@ -1,4 +1,3 @@
-
 appyeApi.createCommand(
   'app-load',
   (commandIn) => {
