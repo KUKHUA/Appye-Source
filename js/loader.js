@@ -56,11 +56,6 @@ function firstSuccess(promises) {
     });
 }
  // The list of URLs. The first success will be loaded.
- const urlMain = [
-  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
-  "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/beta.js",
-  "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYmV0YS5qcw==",
- ];
  const urlDep = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/dependencies/0.2.6_winbox.bundle.min.js",
   "https://nmn.pool.net.eu.org/cp/https/rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js",
@@ -68,9 +63,29 @@ function firstSuccess(promises) {
   "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL25leHRhcHBzLWRlL3dpbmJveC9tYXN0ZXIvZGlzdC93aW5ib3guYnVuZGxlLm1pbi5qcw==",
   "https://rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js",
   "https://raw.githubusercontent.com/nextapps-de/winbox/master/dist/winbox.bundle.min.js"
- ]
+ ];
 
- 
+ const urlMain = [
+  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/base.js",
+  "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/base.js",
+  "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYmFzZS5qcw==",
+ ];
+
+ const urlCommands = [
+"https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/commands.js",
+"https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/commands.js",
+"https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvY29tbWFuZHMuanM="
+];
+
+const urlApps = [
+  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/apps.js",
+  "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/apps.js",
+  "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYXBwcy5qcw=="
+  ];
+
+ loadScript(urlDep);
  loadScript(urlMain);
- loadScript(urlDep)
+ loadScript(urlCommands);
+ loadScript(urlApps)
+
  
