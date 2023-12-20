@@ -86,9 +86,7 @@ const urlApps = [
  loadScript(urlCommands);
  setTimeout(function (){
   loadScript(urlApps);
-  // Something you want delayed.
-            
-}, 1000);
+ }, 1000);
 
 
  
