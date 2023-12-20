@@ -314,7 +314,7 @@ appyeApi.createCommand(
 appyeApi.createCommand(
 'hidden-death',
 (commandIn) => {
-new WinBox({
+void new WinBox({
     title: "Is Death Run 3D a drug?",
     url:"https://www.youtube-nocookie.com/embed/vmbTbE-WGf0?playlist=vmbTbE-WGf0&autoplay=1&iv_load_policy=3&loop=1&start="
 });
