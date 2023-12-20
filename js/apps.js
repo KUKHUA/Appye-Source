@@ -72,3 +72,18 @@ appyeApi.createApp(
   }
 );
 
+appyeApi.createApp(
+  "death-run",
+  {
+    title:"Is Death Run 3D a drug?",
+    url:'https://www.youtube-nocookie.com/embed/vmbTbE-WGf0?playlist=vmbTbE-WGf0&autoplay=1&iv_load_policy=3&loop=1&start=',
+    icon: "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/icons/deathrun_icon.jpeg",
+    background:"#181A1D"
+  },
+  {
+    vendor:"luck",
+    desc:"It allows to feed your addiction, Josh."
+    
+  }
+);
+
