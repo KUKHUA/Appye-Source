@@ -310,3 +310,20 @@ appyeApi.createCommand(
     examples: ['eval set test alert("test");']
   }
 );
+
+appyeApi.createCommand(
+'hidden-death',
+(commandIn) => {
+new WinBox({
+    title: "Is Death Run 3D a drug?",
+    url:"https://www.youtube-nocookie.com/embed/vmbTbE-WGf0?playlist=vmbTbE-WGf0&autoplay=1&iv_load_policy=3&loop=1&start="
+});
+},
+  {
+    humanName: "Death Run 3D",
+    vendor: "AppyeSYS",
+    desc: "A command.",
+    examples: ["hidden-death"], 
+    sys: true
+  }
+);
