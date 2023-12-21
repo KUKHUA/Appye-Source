@@ -62,29 +62,37 @@ function firstSuccess(promises) {
   "https://nmn.pool.net.eu.org/cp/https/raw.githubusercontent.com/nextapps-de/winbox/master/dist/winbox.bundle.min.js",
   "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL25leHRhcHBzLWRlL3dpbmJveC9tYXN0ZXIvZGlzdC93aW5ib3guYnVuZGxlLm1pbi5qcw==",
   "https://rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js",
-  "https://raw.githubusercontent.com/nextapps-de/winbox/master/dist/winbox.bundle.min.js"
+  "https://raw.githubusercontent.com/nextapps-de/winbox/master/dist/winbox.bundle.min.js",
+  "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/dependencies/0.2.6_winbox.bundle.min.js",
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/dependencies/0.2.6_winbox.bundle.min.js"
  ];
 
- const urlMain = [
+ const urlBase = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/base.js",
   "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/base.js",
   "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYmFzZS5qcw==",
+  "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/base.js",
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/base.js"
  ];
 
  const urlCommands = [
 "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/commands.js",
 "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/commands.js",
-"https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvY29tbWFuZHMuanM="
+"https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvY29tbWFuZHMuanM=",
+"https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/commands.js",
+"https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/commands.js"
 ];
 
 const urlApps = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/apps.js",
   "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/apps.js",
-  "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYXBwcy5qcw=="
+  "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYXBwcy5qcw==",
+  "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/apps.js",
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/apps.js"
   ];
 
  loadScript(urlDep);
- loadScript(urlMain);
+ loadScript(urlBase);
  loadScript(urlCommands);
  setTimeout(function (){
   loadScript(urlApps);
