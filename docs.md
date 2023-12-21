@@ -40,7 +40,7 @@ Now for the URL/HTML, you only need one of these for it to work, as if you put b
  <h1>HELLO!</h1>
  <p>Hello world.</p>
  ```
- We will not be moving on to the next section, the **Metadata**. The vendor in this section is a author name/nickname. Now, the "desc" is a description of a app/command. (Hint: You can actually put HTML in here).
+The **Metadata**. The vendor in this section is a author name/nickname. The "desc" is a description of a app/command. (Hint: You can actually put HTML in here).
  
  Lastly, tags. This feature is currently not implemented, but tags will be used for a search feature. It is recommended to put some here.
  Here is an example on how to use it:
