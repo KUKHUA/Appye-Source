@@ -72,7 +72,8 @@ function firstSuccess(promises) {
   "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/base.js",
   "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYmFzZS5qcw==",
   "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/base.js",
-  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/base.js"
+  "https://raw.githack.com/KUKHUA/Appye-Source/main/js/base.js",
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/base.js",
  ];
 
  const urlCommands = [
@@ -80,6 +81,7 @@ function firstSuccess(promises) {
 "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/commands.js",
 "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvY29tbWFuZHMuanM=",
 "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/commands.js",
+"https://raw.githack.com/KUKHUA/Appye-Source/main/js/commands.js",
 "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/commands.js"
 ];
 
@@ -88,6 +90,7 @@ const urlApps = [
   "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/apps.js",
   "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYXBwcy5qcw==",
   "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/apps.js",
+  "https://raw.githack.com/KUKHUA/Appye-Source/main/js/apps.js",
   "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/apps.js"
   ];
 
