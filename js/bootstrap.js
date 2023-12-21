@@ -61,6 +61,7 @@ const urlLoader = [
   "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/loader.js",
   "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/loader.js",
   "https://raw.githack.com/KUKHUA/Appye-Source/main/js/loader.js",
+  "https://codeberg.org/lucky/Appye-Source/raw/branch/main/js/loader.js",
   "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/loader.js"
   ];
 
