@@ -1,6 +1,6 @@
 # Appye Documentation
 ## Creating Apps
-First off, start with this template:
+Start with this template:
 ```
 appyeApi.createApp(
   "",
