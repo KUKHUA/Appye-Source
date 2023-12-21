@@ -64,7 +64,8 @@ function firstSuccess(promises) {
   "https://rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js",
   "https://raw.githubusercontent.com/nextapps-de/winbox/master/dist/winbox.bundle.min.js",
   "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/dependencies/0.2.6_winbox.bundle.min.js",
-  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/dependencies/0.2.6_winbox.bundle.min.js"
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/dependencies/0.2.6_winbox.bundle.min.js",
+  "https://gitlab.com/pasclucky/Appye-Source/-/raw/main/dependencies/0.2.6_winbox.bundle.min.js"
  ];
 
  const urlBase = [
@@ -72,7 +73,8 @@ function firstSuccess(promises) {
   "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/base.js",
   "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYmFzZS5qcw==",
   "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/base.js",
-  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/base.js"
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/base.js",
+  "https://gitlab.com/pasclucky/Appye-Source/-/raw/main/js/base.js"
  ];
 
  const urlCommands = [
@@ -80,7 +82,8 @@ function firstSuccess(promises) {
 "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/commands.js",
 "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvY29tbWFuZHMuanM=",
 "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/commands.js",
-"https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/commands.js"
+"https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/commands.js",
+"https://gitlab.com/pasclucky/Appye-Source/-/raw/main/js/commands.js"
 ];
 
 const urlApps = [
@@ -88,7 +91,8 @@ const urlApps = [
   "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/apps.js",
   "https://nmn.pool.net.eu.org/cp/64/aHR0cHM6Ly9naXQuYmFzaWNmYW4uZXUub3JnL2x1Y2t5L0FwcHllLVNvdXJjZS9yYXcvYnJhbmNoL21haW4vanMvYXBwcy5qcw==",
   "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/apps.js",
-  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/apps.js"
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/apps.js",
+  "https://gitlab.com/pasclucky/Appye-Source/-/raw/main/js/apps.js"
   ];
 
  loadScript(urlDep);
