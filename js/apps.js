@@ -78,7 +78,7 @@ appyeApi.createApp(
     title:"Death Run 3D",
     url:'https://raw.githack.com/Parcoil/gms/main/death-run-3d/index.html',
     icon: "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/icons/deathrun_icon.jpeg",
-    background:"#181A1D"
+    background:"#EE7972"
   },
   {
     vendor:"luck",
