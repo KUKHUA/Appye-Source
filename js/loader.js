@@ -40,7 +40,7 @@ function firstSuccess(promises) {
     )
   )
     .catch(failures => {
-      throw new Error(`All providers are offline or blocked`);
+      throw new Error(`All providers are offline or blocked. Please try loging in to your school's network.`);
     })
     .then(() => {
       fetchAborter.abort();
