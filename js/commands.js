@@ -1,7 +1,11 @@
-appyeApi.createCommand(
+appye.createCommand(
   'app-load',
   (commandIn) => {
     parseApp = commandIn.replace("app-load ", "");
+    /**
+     * Represents a cached app.
+     * @type {Object}
+     */
     const cachedApp = jsonAppObject.apps[parseApp];
     if (cachedApp) {
       void new WinBox(cachedApp);
@@ -23,7 +27,7 @@ appyeApi.createCommand(
   }
 );
 
-appyeApi.createCommand(
+appye.createCommand(
   'cloak-it',
   (commandIn) => {
     const win = window.open();
@@ -32,39 +36,68 @@ appyeApi.createCommand(
     let defTitle = "Desmos | Testing";
     let defIcon = "https://www.desmos.com/favicon.ico";
     let parsedUrl = commandIn.replace("cloak-it ", "");
+    // Check if valid URL
+    /**
+     * Checks if the given URL is present in the jsonAppObject.apps.
+     * If the URL is present, it checks if the app has an HTML property.
+     * If the app does not have an HTML property, it returns the app's URL.
+     * If the app has an HTML property, it sets the srcdoc of the iframe to the app's HTML.
+     * If the URL is not present in jsonAppObject.apps, it checks if the URL is valid.
+     * If the URL is valid, it returns the URL.
+     * If the URL is not valid, it throws an error with the message "Invalid URL: {url}".
+     * 
+     * @param {string} url - The URL to check.
+     * @returns {string} - The app's URL or the valid URL.
+     * @throws {Error} - If the URL is not valid.
+     */
     function jsonAppCheck(url) {
       const app = jsonAppObject.apps[url];
-      if (app && !app.html) {
-        return app.url;
-      } else if (app && app.html) {
-        iframe.srcdoc = app.html;
+      if (app) {
+        if (!app.html) {
+          return app.url;
+        } else {
+          iframe.srcdoc = app.html;
+        }
+      } else {
+        if (isValidUrl(url)) {
+          return url;
+        } else {
+          throw new Error(`Invalid URL: ${url}`);
+        }
       }
-      return url;
     }
-  
-    // Parse input
-    if (parsedUrl.startsWith("drive ")) {
-      defTitle = "My Drive - Google Drive";
-      defIcon = "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
-      parsedUrl = parsedUrl.replace("drive ", "");
-      parsedUrl = jsonAppCheck(parsedUrl);
-    } else if (parsedUrl.startsWith("canvas ")) {
-      defTitle = "Dashboard";
-      defIcon = "https://learn.canvas.net/favicon.ico";
-      parsedUrl = parsedUrl.replace("canvas ", "");
-      parsedUrl = jsonAppCheck(parsedUrl);
-    } else if (parsedUrl.startsWith("clever ")) {
-      defTitle = "Clever | Portal";
-      defIcon = "https://clever.com/favicon.ico";
-      parsedUrl = parsedUrl.replace("clever ", "");
-      parsedUrl = jsonAppCheck(parsedUrl);
-    } else if (parsedUrl.startsWith("self ")) {
-      defTitle = document.title;
-      defIcon = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + window.location.href;
-      parsedUrl = parsedUrl.replace("self ", "");
-      parsedUrl = jsonAppCheck(parsedUrl);
-    } else {
-      parsedUrl = jsonAppCheck(parsedUrl);
+
+    let prefix = parsedUrl.split(" ")[0]; // get the prefix
+
+    switch (prefix) {
+      case "google":
+        defTitle = "Google";
+        defIcon = "https://www.google.com/favicon.ico";
+        parsedUrl = parsedUrl.replace("google ", "");
+        break;
+      case "drive":
+        defTitle = "My Drive - Google Drive";
+        defIcon = "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
+        parsedUrl = parsedUrl.replace("drive ", "");
+        break;
+      case "canvas":
+        defTitle = "Dashboard";
+        defIcon = "https://learn.canvas.net/favicon.ico";
+        parsedUrl = parsedUrl.replace("canvas ", "");
+        break;
+      case "clever":
+        defTitle = "Clever | Portal";
+        defIcon = "https://clever.com/favicon.ico";
+        parsedUrl = parsedUrl.replace("clever ", "");
+        break;
+      case "self":
+        defTitle = document.title;
+        defIcon = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + window.location.href;
+        parsedUrl = parsedUrl.replace("self ", "");
+        break;
+      default:
+        parsedUrl = jsonAppCheck(parsedUrl);
+        break;
     }
   
     // Open window
@@ -96,9 +129,15 @@ appyeApi.createCommand(
     sys: true
   });
 
-  appyeApi.createCommand(
+  appye.createCommand(
     'load-url',
     (commandIn) => {
+      /**
+       * Retrieves the title from a domain string.
+       * 
+       * @param {string} str - The domain string.
+       * @returns {string} - The title extracted from the domain string.
+       */
       function getTitleFromDomain(str) {
         if (str.startsWith('www.')) {
           str = str.substring(4);
@@ -112,7 +151,6 @@ appyeApi.createCommand(
           return str;
         }
       }
-      
       newUrl = commandIn.replace("load-url ","");
       const urlInfo = new URL(newUrl);
       void new WinBox({
@@ -132,11 +170,15 @@ appyeApi.createCommand(
     }
   );
 
-appyeApi.createCommand(
+appye.createCommand(
   'search',
   (commandIn) => {
     searchEngineName = "SearX";
     baseSearchURL = "https://searx.garudalinux.org/search?q=";
+    /**
+     * The search term extracted from the command input.
+     * @type {string}
+     */
     let searchTerm = commandIn.replace("search ", "");
     inputURI = encodeURI(searchTerm);
     void new WinBox({
@@ -156,7 +198,7 @@ appyeApi.createCommand(
   }
 );
 
-appyeApi.createCommand(
+appye.createCommand(
   'ls',
   (commandIn) => {
     commandIn = commandIn.replace('ls ','');
@@ -166,20 +208,15 @@ appyeApi.createCommand(
 
     for (var apps in jsonAppObject.apps){
 
-    humanName = jsonAppObject.apps[apps].title;
+    let humanName = jsonAppObject.apps[apps].title;
 
-    vendor = jsonAppObject.metadata[apps].vendor;
+    let vendor = jsonAppObject.metadata[apps].vendor;
     
-    desc = jsonAppObject.metadata[apps].desc;
+    let desc = jsonAppObject.metadata[apps].desc;
 
-    tags = jsonAppObject.metadata[apps].tags;
+    let tags = jsonAppObject.metadata[apps].tags;
  
-    if(jsonAppObject.apps[apps].icon){
-     icon = jsonAppObject.apps[apps].icon;
-    } else if (!jsonAppObject.apps[apps].icon || jsonAppObject.apps[apps].icon == null || jsonAppObject.apps[apps].icon == ""){
-      icon = "https://openclipart.org/image/800px/301359";
-    }
-
+    let icon = getIcon(apps);
 
     appHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
     <h3 id="by-vendor-">by ${vendor}</h3>
@@ -227,22 +264,22 @@ appyeApi.createCommand(
       background: "#00000",
       html: cmdHtml
     }); 
-    } else if (commandIn == "eval" || commandIn == "evals"){
-      evalHtml = "";
-      localObjects = JSON.parse(localStorage.getItem('imaEvalThis'));
+    } else if (commandIn == "plugin" || commandIn == "plugins"){
+      pluginHtml = "";
+      localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
       for (var dynamicObjects in localObjects){
         humanName = dynamicObjects;
         code = localObjects[dynamicObjects].code;
-        evalHtml += `<h2>${humanName} </h2> <button onclick="intCmd('eval del ${dynamicObjects}')"> Remove eval</button>
+        pluginHtml += `<h2>${humanName} </h2> <button onclick="intCmd('plugin del ${dynamicObjects}')"> Remove plugin</button>
         <h3>Code: </h3>
         <p>${code}</p>
         <hr>
         `;
       }
       void new WinBox({
-        title: "List of Set Evals",
+        title: "List of Set plugins",
         background: "#00000",
-        html: evalHtml
+        html: pluginHtml
       }); 
     }
     else{
@@ -254,14 +291,14 @@ appyeApi.createCommand(
     humanName: "List",
     vendor: "AppyeSYS",
     desc: "Defualt command, lists command/apps.",
-    tags: ["ls","dir","list","commands","apps",'eval','evals'],
-    examples: ["ls commands", "ls apps","ls evals"],
+    tags: ["ls","dir","list","commands","apps",'plugin','plugins'],
+    examples: ["ls commands", "ls apps","ls plugins"],
     sys: true
   }
 
 );
 
-appyeApi.createCommand(
+appye.createCommand(
 'shell',
 (commandIn) => {
 javaScript = commandIn.replace('shell ', '');
@@ -277,14 +314,14 @@ eval(javaScript);
   }
 );
 
-appyeApi.createCommand(
-  'eval',
+appye.createCommand(
+  'plugin',
   (commandIn) => {
-  if(!localStorage.getItem('imaEvalThis')){
-    localStorage.setItem('imaEvalThis','{}');
+  if(!localStorage.getItem('imapluginThis')){
+    localStorage.setItem('imapluginThis','{}');
   }
-  localObjects = JSON.parse(localStorage.getItem('imaEvalThis'));
-    commandIn = commandIn.replace("eval ", "");
+  localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
+    commandIn = commandIn.replace("plugin ", "");
     if (commandIn.startsWith("set ")) {
       commandIn = commandIn.replace("set ", "");
       localObjID = commandIn.split(" ")[0];
@@ -293,20 +330,20 @@ appyeApi.createCommand(
         localObjects[localObjID] = {};
       }
       localObjects[localObjID].code = commandIn;
-      localStorage.setItem('imaEvalThis', JSON.stringify(localObjects));
+      localStorage.setItem('imapluginThis', JSON.stringify(localObjects));
     } else if (commandIn.startsWith("del ")) {
       commandIn = commandIn.replace("del ", "");
       localObjID = commandIn.split(" ")[0];
       localObjects[localObjID] = undefined;
-      localStorage.setItem('imaEvalThis', JSON.stringify(localObjects));
-      alert(`The eval ${localObjID} has been removed.`);
+      localStorage.setItem('imapluginThis', JSON.stringify(localObjects));
+      alert(`The plugin ${localObjID} has been removed.`);
     }
   },
   {
-    humanName:"Eval",
+    humanName:"Plugin",
     vendor:"Luck",
     desc:"Allows you to run JavaScript snippets on launch of Appye.",
-    tags: ["eval","javascript","js","set eval","snippets"],
-    examples: ['eval set test alert("test");']
+    tags: ["plugin","javascript","js","set plugin","snippets"],
+    examples: ['plugin set test alert("test");']
   }
 );

@@ -2,7 +2,7 @@
 ## Creating Apps
 Start with this template:
 ```
-appyeApi.createApp(
+appye.createApp(
   "",
   {
     title: "",
@@ -51,7 +51,7 @@ Please not that you should know some JavaScript before attempting to make a comm
 
 Start off with this template:
 ```
-appyeApi.createCommand(
+appye.createCommand(
 '',
 (commandIn) => {
 
@@ -85,13 +85,13 @@ Currently Appye is closed source, while there are plans for that to change, it w
 
 Since it is closed source, how do your custom content?
 
-With the `eval` command!
-The eval command allows you to set multiple javascript snippets to run at start-up of Appye.
+With the `plugin` command!
+The plugin command allows you to set multiple javascript snippets to run at start-up of Appye.
 
 Here how to use it:
 1. Get your modified template code in your copy/paste.
 2. Load up an Appye command prompt.
-3. Type `eval set `, next you need to type an ID for the eval so you can remove it if you no longer want it (eg `eval set testid`).
+3. Type `plugin set `, next you need to type an ID for the plugin so you can remove it if you no longer want it (eg. `plugin set testid`).
 4. Next, after you type your id, add a space afterwards and paste your modified template code. You may have to minify this code for it to work correctly.
 5. Now, reload appye on the same website and your app/command should show up in `ls apps`, and `ls commands`, respectively.
 
