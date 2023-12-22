@@ -114,7 +114,6 @@ function cmd() {
 function getIcon(appName) {
   const iconMirrors = [
     "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/icons/",
-    "https://codeberg.org/lucky/Appye-Source/raw/branch/main/icons/",
     "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/icons/",
   ];
 
