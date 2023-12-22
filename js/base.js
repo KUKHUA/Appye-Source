@@ -106,7 +106,6 @@ function cmd() {
   }
 }
 
-//make a funcion to get the right icon
 /**
  * Retrieves the icon URL for the specified app name.
  * @param {string} appName - The name of the app.
@@ -122,24 +121,30 @@ function getIcon(appName) {
   for (const mirror of iconMirrors) {
     const iconUrl = `${mirror}${appName}_icon.png`;
     try {
-      const response = fetch(iconUrl);
-      if (response.ok) {
+      const request = new XMLHttpRequest();
+      request.open('GET', iconUrl, false);  // `false` makes the request synchronous
+      request.send(null);
+
+      if (request.status === 200) {
         return iconUrl;
       }
     } catch (error) {
-      // Ignore fetch errors and continue to the next mirror
+      // Ignore errors and continue to the next mirror
     }
   }
 
   if (jsonAppObject.metadata[appName]?.icon) {
     const iconUrl = jsonAppObject.metadata[appName].icon;
     try {
-      const response = fetch(iconUrl);
-      if (response.ok) {
+      const request = new XMLHttpRequest();
+      request.open('GET', iconUrl, false);  // `false` makes the request synchronous
+      request.send(null);
+
+      if (request.status === 200) {
         return iconUrl;
       }
     } catch (error) {
-      // Ignore fetch errors and return the default icon
+      // Ignore errors and return the default icon
     }
   }
 
