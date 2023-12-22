@@ -216,7 +216,7 @@ appye.createCommand(
 
     let tags = jsonAppObject.metadata[apps].tags;
  
-    let icon = getIcon(apps);
+    var icon = getIcon(apps);
 
     appHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
     <h3 id="by-vendor-">by ${vendor}</h3>
