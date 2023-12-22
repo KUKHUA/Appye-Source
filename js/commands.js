@@ -208,6 +208,8 @@ appye.createCommand(
 
     for (var apps in jsonAppObject.apps){
 
+    let icon = getIcon(apps);
+    
     let humanName = jsonAppObject.apps[apps].title;
 
     let vendor = jsonAppObject.metadata[apps].vendor;
@@ -215,8 +217,7 @@ appye.createCommand(
     let desc = jsonAppObject.metadata[apps].desc;
 
     let tags = jsonAppObject.metadata[apps].tags;
- 
-    let icon = await getIcon(apps);
+
 
     appHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
     <h3 id="by-vendor-">by ${vendor}</h3>
