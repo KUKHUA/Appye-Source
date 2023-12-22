@@ -100,8 +100,8 @@ const urlApps = [
 
  loadScript(urlDep);
  loadScript(urlBase);
- loadScript(urlCommands);
  setTimeout(function (){
+  loadScript(urlCommands);
   loadScript(urlApps);
  }, 1000);
 
