@@ -6,7 +6,6 @@ appye.createCommand(
      * Represents a cached app.
      * @type {Object}
      */
-    jsonAppObject.apps[parseApp].icon = getIcon(parseApp);
     var cachedApp = jsonAppObject.apps[parseApp];
     if (cachedApp) {
       void new WinBox(cachedApp);
