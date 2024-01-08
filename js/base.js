@@ -79,7 +79,7 @@ function intCmd(command) {
   if (jsonAppObject.commands[commandStart]) {
     jsonAppObject.commands[commandStart](commandIn);
   } else {
-    throw new Error("An internal service tried to call the " + commandStart + " command, but it dose not seem to exist.");
+    throw new Error("A service tried to call the " + commandStart + " command, but it dose not seem to exist.");
   }
 }
 
@@ -97,13 +97,7 @@ function cmd() {
   } else if (commandIn == null) {
     return;
   }
-  commandStart = commandIn.split(" ")[0];
-  commandStart = commandStart.toLowerCase();
-  if (jsonAppObject.commands[commandStart]) {
-    jsonAppObject.commands[commandStart](commandIn);
-  } else {
-    alert("Command '" + commandStart + "' could not be found. The commands's eval may have been removed. Please check 'ls commands'.");
-  }
+    intCmd(commandIn);
 }
 
 /**
