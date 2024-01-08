@@ -8,7 +8,7 @@ appye.createCommand(
      */
     var cachedApp = jsonAppObject.apps[parseApp];
     if (cachedApp) {
-      cachedApp.icon = await getIcon(parseApp);
+      alert(getIcon(parseApp))
       void new WinBox(cachedApp);
     }else {
       alert(
