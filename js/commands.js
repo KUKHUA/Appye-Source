@@ -307,6 +307,45 @@ appye.createCommand(
 );
 
 appye.createCommand(
+  'run',
+  (commandIn) => {
+  var runFlag; 
+  if(commandIn.startsWith('run ')){
+    var toCheck = commandIn.replace('run ','')
+  if(toCheck.startsWith('js')){
+    runFlag = 'js';
+  }else {
+    runFlag = 'cmd';
+  }
+} else {
+  switch(commandIn){
+    case 'runjs':
+    runFlag = 'js';
+    break;
+    case 'runcmd':
+    runFlag = 'cmd';
+  };
+}
+switch(runFlag){
+  case 'js':
+  
+  break;
+  case 'cmd':
+  
+  break;
+}
+  },
+  {
+    humanName: "Run",
+    vendor: "Lucky",
+    desc: "A command that allows you to run remote commands/javascript.",
+    tags: ['eval','javascript','commands'],
+    examples: ["runjs https://rawcdn.githack.com/xxx/xxx/xxx.js", "run js https://rawcdn.githack.com/xxx/xxx/xxx.js", "runcmd https://rawcdn.githack.com/xxx/xxx/xxx.js", "run cmd https://rawcdn.githack.com/xxx/xxx/xxx.js"]
+  }
+
+)
+
+appye.createCommand(
 'shell',
 (commandIn) => {
 javaScript = commandIn.replace('shell ', '');
