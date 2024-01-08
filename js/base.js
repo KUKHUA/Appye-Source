@@ -12,6 +12,8 @@ const appye = {
     }
     jsonAppObject.apps[name] = info;
     jsonAppObject.metadata[name] = metadata;
+    jsonAppObject.metadata[name].icon = getIcon(name);
+    
   },
   createCommand(command, js, metadata) {
     if (command in jsonAppObject.commands) {
