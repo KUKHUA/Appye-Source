@@ -6,7 +6,20 @@ Appye is bookmarklet that allows you to access and hide websites.
 
 Join our server: [Appye Discord Server](https://discord.gg/CYjMqNS8K6)
 
-Appye is possibale in part thanks to [Winbox.JS](https://github.com/nextapps-de/winbox) by [nextapps-de](https://github.com/nextapps-de), and 3kho's games.
+## Credits
+[Winbox.JS](https://github.com/nextapps-de/winbox) by [nextapps-de](https://github.com/nextapps-de),
+[FoxLauncher](https://github.com/FoxMoss/FoxLauncher) by [FoxMoss](https://github.com/FoxMoss/),
+and lastly JSZip.
+```
+JSZip v3.10.1 - A JavaScript class for generating and reading zip files
+<http://stuartk.com/jszip>
+
+(c) 2009-2016 Stuart Knightley <stuart [at] stuartk.com>
+Dual licenced under the MIT license or GPLv3. See https://raw.github.com/Stuk/jszip/main/LICENSE.markdown.
+
+JSZip uses the library pako released under the MIT license :
+https://github.com/nodeca/pako/blob/main/LICENSE
+```
 
 ## Getting Started
 
