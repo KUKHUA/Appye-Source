@@ -222,11 +222,18 @@ appye.createCommand(
     appHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
     <h3 id="by-vendor-">by ${vendor}</h3>
     <p>${desc}</p>
-    <p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>
-    <hr>
     `;
+    
+    if (jsonAppObject.apps[apps].internalApp = true){
+    appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`
+    } else {
+      appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`
     }
-   
+
+    appHtml += ` <hr>`
+    
+   }
+
     void new WinBox({
       title: "App List",
       background: "#00000",
