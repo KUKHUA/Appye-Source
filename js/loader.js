@@ -98,11 +98,21 @@ const urlApps = [
   "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/apps.js"
   ];
 
+  const urlFox = [
+  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/fox.js",
+  "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/fox.js",
+  "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/fox.js",
+  "https://raw.githack.com/KUKHUA/Appye-Source/main/js/fox.js",
+  "https://codeberg.org/lucky/Appye-Source/raw/branch/main/js/fox.js",
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/fox.js"
+  ];
+
  loadScript(urlDep);
  loadScript(urlBase);
  setTimeout(function (){
   loadScript(urlCommands);
   loadScript(urlApps);
+  loadScript(urlFox);
  }, 1000);
 
 
