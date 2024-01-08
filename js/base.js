@@ -11,6 +11,7 @@ const appye = {
       throw new Error("Duplicate metadata " + name);
     }
     jsonAppObject.apps[name] = info;
+    jsonAppObject.apps[name].icon = getIcon(name);
     jsonAppObject.metadata[name] = metadata;
   },
   createCommand(command, js, metadata) {
