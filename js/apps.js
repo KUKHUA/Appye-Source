@@ -75,7 +75,8 @@ appye.createApp(
   },
   {
     vendor:"luck",
-    desc:"It allows to feed your addiction, Josh."
+    desc:"It allows to feed your addiction, Josh.",
+    extrnalApp:"true"
     
   }
 );
