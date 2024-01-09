@@ -224,7 +224,7 @@ appye.createCommand(
     <p>${desc}</p>
     `;
     
-    if (jsonAppObject.metadata[apps].externalApp == true){
+    if (jsonAppObject.metadata[apps].externalApp = true){
     appHtml += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.metadata[apps].url}')">Open</button> <p><a href="${jsonAppObject.metadata[apps].url}">or drag this to a new tab</a></p>`
     } else {
       appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`
