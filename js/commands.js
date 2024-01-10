@@ -217,6 +217,8 @@ appye.createCommand(
     let desc = jsonAppObject.metadata[apps].desc;
 
     let tags = jsonAppObject.metadata[apps].tags;
+    
+ 
 
 
     appHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
@@ -226,7 +228,7 @@ appye.createCommand(
     
     if (jsonAppObject.metadata[apps].externalApp){
     alert(`${apps} is an external app.`)
-    appHtml += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.metadata[apps].url}')">Open</button> <p><a href="${jsonAppObject.metadata[apps].url}">or drag this to a new tab</a></p>`
+    appHtml += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`
     } else {
       appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`
     }
