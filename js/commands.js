@@ -274,21 +274,6 @@ for (var commands in jsonAppObject.commands){
 
 <script>
 var idObj = {};
-
-function hideDiv(id) {
-  var tmpID = document.getElementById(id);
-  var tmpIDText = document.getElementById(id + "Text");
-  if (idObj[id]) {
-    idObj[id] = 0;
-    tmpID.style.display = 'none';
-        tmpIDText.style['font-style'] = 'italic';
-  } else {
-    idObj[id] = 1;
-    tmpID.style.display = 'block';
-    tmpIDText.style['font-style'] = '';
-    
-  }
-}
   
 </script>
 <button  class="wb-button"style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button class="wb-button" style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
