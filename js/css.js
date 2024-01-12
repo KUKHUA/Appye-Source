@@ -1,18 +1,20 @@
 document.head.innerHTML += `
-<style>
-  .wb-h{
-    color: '#249000';
+  .appye-header{
+    color: green;
     font-weight: 800;
   }
   
-  .wb-button {
+  .appye-button {
     font-family: 'Source Code Pro', monospace;
     font-weight: 500;
+    color:#DDDDDD;
+    background-color:#272727;
+    border-radius: 5px;
   }
   
-  .wb-body {
+  .appye-body {
     font-family: 'Source Code Pro', monospace;
-    background-color: black;
+    background-color: #0F0F0F;
+    color:#DDDDDD;
   }
-</style>
 `
