@@ -203,7 +203,140 @@ appye.createCommand(
   (commandIn) => {
     commandIn = commandIn.replace('ls ','');
     var appHtml,commandHtml,pluginHtml;
-    alert('later')
+
+    for (var apps in jsonAppObject.apps){
+
+    let icon = getIcon(apps);
+    
+    let humanName = jsonAppObject.apps[apps].title;
+
+    let vendor = jsonAppObject.metadata[apps].vendor;
+    
+    let desc = jsonAppObject.metadata[apps].desc;
+
+    let tags = jsonAppObject.metadata[apps].tags;
+    
+    appHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
+    <h3 id="by-vendor-">by ${vendor}</h3>
+    <p>${desc}</p>
+    `;
+    
+    if (jsonAppObject.metadata[apps].externalApp){
+    appHtml += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`
+    } else {
+      appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`
+    }
+
+    appHtml += ` <hr>`
+   }
+
+for (var commands in jsonAppObject.commands){
+      humanName = jsonAppObject.metadata[commands].humanName;
+
+      vendor = jsonAppObject.metadata[commands].vendor;
+      
+      desc = jsonAppObject.metadata[commands].desc;
+
+      examples = jsonAppObject.metadata[commands].examples;
+      tags = jsonAppObject.metadata[commands].tags;
+   
+      if(jsonAppObject.metadata.icon){
+       icon = jsonAppObject.metadata.icon;
+      } else if (!jsonAppObject.metadata[commands].icon || jsonAppObject.metadata[commands].icon == null || jsonAppObject.metadata[commands].icon == ""){
+        icon = "https://openclipart.org/image/800px/301359";
+      }
+
+      cmdHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
+      <h3 id="by-vendor-">by ${vendor}</h3>
+      <p>${desc}</p>
+      <h2>Examples:</h2>
+      <p>${examples}</p>
+      <hr>
+      `;
+    }
+
+    pluginHtml = "";
+      localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
+      for (var dynamicObjects in localObjects){
+        humanName = dynamicObjects;
+        code = localObjects[dynamicObjects].code;
+        pluginHtml += `<h2>${humanName} </h2> <button onclick="intCmd('plugin del ${dynamicObjects}')"> Remove plugin</button>
+        <h3>Code: </h3>
+        <p>${code}</p>
+        <hr>
+        `;
+      }
+      
+      mainHtml = `
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,500;0,900;1,500;1,900&display=swap" rel="stylesheet">
+
+<style>
+  h1,h2,h3,h4,h5,h6{
+    color: #249000;
+    font-weight: 800;
+  }
+  
+  button {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    background-color: #0F0F0F;
+    color: white;
+  }
+  
+  body {
+    background-color: #0F0F0F;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+  }
+</style>
+<script>
+var idObj = {};
+
+function hideDiv(id) {
+  var tmpID = document.getElementById(id);
+  var tmpIDText = document.getElementById(id + "Text");
+  if (idObj[id]) {
+    idObj[id] = 0;
+    tmpID.style.display = 'none';
+        tmpIDText.style['font-style'] = 'italic';
+  } else {
+    idObj[id] = 1;
+    tmpID.style.display = 'block';
+    tmpIDText.style['font-style'] = '';
+    
+  }
+}
+  
+</script>
+<button  style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
+
+
+<h1 font-style="italic" title="You can click to show/hide this section." id="AppsText" style="cursor:pointer;" onclick='hideDiv("Apps")'> > Apps</h1>
+<div id='Apps'>
+  ${appHtml}
+</div>
+
+<h1 title="You can click to show/hide this section." id="CommandsText"style="cursor:pointer;" onclick='hideDiv("Commands")'> > Commands</h1>
+<div id='Commands'>
+  ${commandHtml}
+</div>
+
+<h1 title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
+<div id='Plugins'>
+  ${pluginHtml}
+</div>
+
+      
+      `
+
+        void new WinBox({
+        title: "List",
+        background: "#00000",
+        html: 
+      }); 
+
   },
 {
     humanName: "List",
