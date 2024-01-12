@@ -1,24 +1,24 @@
-
 function firstSuccess(promises) {
-  let failures = []
-  let remaining = promises.length
-  let i = 0
+  let failures = [];
+  let remaining = promises.length;
+  let i = 0;
   return new Promise((res, rej) => {
     for (let p of promises) {
-      i
+      let currentIndex = i; // Store the current index
       p.then(
         value => res(value),
         err => {
-          failures[i] = errox
-          remaining
+          failures[currentIndex] = err; // Store the failure at the current index
+          remaining--;
           if (remaining === 0) {
-            rej(failures)
+            rej(failures);
           }
         }
-      )
+      );
+      i++; // Update the index for the next promise
     }
-  })
- }
+  });
+}
  
  function loadScript(urls) {
   const fetchAborter = new AbortController();
