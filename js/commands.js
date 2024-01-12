@@ -205,7 +205,7 @@ appye.createCommand(
   
     if(commandIn == "app" || commandIn == "apps"){
     let appHtml = "";
-
+    appHtml += `<button  style="cursor:pointer;" title="Allows you to add an app, with HTML or simply a URL" onclick="">Add App</button> <button style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>`
     for (var apps in jsonAppObject.apps){
 
     let icon = getIcon(apps);
@@ -227,7 +227,6 @@ appye.createCommand(
     `;
     
     if (jsonAppObject.metadata[apps].externalApp){
-    alert(`${apps} is an external app.`)
     appHtml += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`
     } else {
       appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`
