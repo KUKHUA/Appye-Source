@@ -268,7 +268,7 @@ for (var commands in jsonAppObject.commands){
       }
       
       mainHtml = `
-      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,500;0,900;1,500;1,900&display=swap" rel="stylesheet">
 
@@ -276,23 +276,25 @@ for (var commands in jsonAppObject.commands){
 var idObj = {};
   
 </script>
-<button  class="wb-button"style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button class="wb-button" style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
+<body class="appye-body">
+<button  class="appye-button"style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button class="appye-button" style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
 
 
-<h1 class="wb-h" font-style="italic" title="You can click to show/hide this section." id="AppsText" style="cursor:pointer;" onclick='hideDiv("Apps")'> > Apps</h1>
+<h1 class="appye-header" font-style="italic" title="You can click to show/hide this section." id="AppsText" style="cursor:pointer;" onclick='hideDiv("Apps")'> > Apps</h1>
 <div id='Apps'>
   ${appHtml}
 </div>
 
-<h1 class="wb-h" title="You can click to show/hide this section." id="CommandsText"style="cursor:pointer;" onclick='hideDiv("Commands")'> > Commands</h1>
+<h1 class="appye-header" title="You can click to show/hide this section." id="CommandsText"style="cursor:pointer;" onclick='hideDiv("Commands")'> > Commands</h1>
 <div id='Commands'>
   ${cmdHtml}
 </div>
 
-<h1 class="wb-h" title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
+<h1 class="appye-header" title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
 <div id='Plugins'>
   ${pluginHtml}
-</div>`;
+</div>
+</body>`;
 
 new WinBox({
     title: "LS - List",
