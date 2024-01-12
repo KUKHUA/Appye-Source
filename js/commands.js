@@ -320,7 +320,7 @@ function hideDiv(id) {
 
 <h1 title="You can click to show/hide this section." id="CommandsText"style="cursor:pointer;" onclick='hideDiv("Commands")'> > Commands</h1>
 <div id='Commands'>
-  ${commandHtml}
+  ${cmdHtml}
 </div>
 
 <h1 title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
