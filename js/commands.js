@@ -273,19 +273,19 @@ for (var commands in jsonAppObject.commands){
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,500;0,900;1,500;1,900&display=swap" rel="stylesheet">
 
 <style>
-  h1,h2,h3,h4,h5,h6{
+  .wb-h{
     color: '#249000';
     font-weight: 800;
   }
   
-  button {
+  .wb-button {
     font-family: 'Source Code Pro', monospace;
     font-weight: 500;
     background-color: '#0F0F0F';
     color: white;
   }
   
-  body {
+  .wb-body {
     background-color: '#0F0F0F';
     color: white;
     font-family: 'Source Code Pro', monospace;
@@ -310,20 +310,20 @@ function hideDiv(id) {
 }
   
 </script>
-<button  style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
+<button  class="wb-button"style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button class="wb-button" style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
 
 
-<h1 font-style="italic" title="You can click to show/hide this section." id="AppsText" style="cursor:pointer;" onclick='hideDiv("Apps")'> > Apps</h1>
+<h1 class="wb-h" font-style="italic" title="You can click to show/hide this section." id="AppsText" style="cursor:pointer;" onclick='hideDiv("Apps")'> > Apps</h1>
 <div id='Apps'>
   ${appHtml}
 </div>
 
-<h1 title="You can click to show/hide this section." id="CommandsText"style="cursor:pointer;" onclick='hideDiv("Commands")'> > Commands</h1>
+<h1 class="wb-h" title="You can click to show/hide this section." id="CommandsText"style="cursor:pointer;" onclick='hideDiv("Commands")'> > Commands</h1>
 <div id='Commands'>
   ${cmdHtml}
 </div>
 
-<h1 title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
+<h1 class="wb-h" title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
 <div id='Plugins'>
   ${pluginHtml}
 </div>`;
