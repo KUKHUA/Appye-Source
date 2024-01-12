@@ -12,6 +12,7 @@ document.head.innerHTML += `
   
   .wb-body {
     font-family: 'Source Code Pro', monospace;
+    background-color: #0F0F0F;
   }
 </style>
 `
