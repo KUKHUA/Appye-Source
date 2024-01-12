@@ -8,12 +8,9 @@ document.head.innerHTML += `
   .wb-button {
     font-family: 'Source Code Pro', monospace;
     font-weight: 500;
-    background-color: '#0F0F0F';
-    color: white;
   }
   
   .wb-body {
-    color: #0F0F0F;
     font-family: 'Source Code Pro', monospace;
   }
 </style>
