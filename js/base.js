@@ -101,6 +101,23 @@ function cmd() {
     intCmd(commandIn);
 }
 
+function hideDiv(id) {
+  var tmpID = document.getElementById(id);
+  var tmpIDText = document.getElementById(id + "Text");
+  if (idObj[id]) {
+    idObj[id] = 0;
+    tmpID.style.display = 'none';
+        tmpIDText.style['font-style'] = 'italic';
+  } else {
+    idObj[id] = 1;
+    tmpID.style.display = 'block';
+    tmpIDText.style['font-style'] = '';
+    
+  }
+}
+
+
+
 /**
  * Retrieves the icon URL for the specified app name.
  * @param {string} appName - The name of the app.
