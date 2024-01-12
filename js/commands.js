@@ -298,7 +298,7 @@ new WinBox({
     title: "LS - List",
     background: '#249000',
     html: mainHtml,
-    class: wb-body-ls
+    class: 'wb-body-ls',
 });
 
   },
