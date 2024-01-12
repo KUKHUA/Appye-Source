@@ -75,6 +75,10 @@ const urlApps = [
   const urlFs = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/Fs.js",
   ];
+    const urlCss = [
+  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/css.js",
+  ];
+
 
  loadScript(urlDep);
  loadScript(urlBase);
@@ -82,6 +86,7 @@ const urlApps = [
   loadScript(urlCommands);
   loadScript(urlApps);
   loadScript(urlFs);
+  loadScript(urlCss);
  }, 1000);
 
 
