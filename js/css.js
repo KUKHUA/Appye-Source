@@ -1,11 +1,11 @@
 document.head.innerHTML += `
 <style>
-  .wb-h-ls{
+  .wb-h{
     color: '#249000';
     font-weight: 800;
   }
   
-  .wb-button-ls {
+  .wb-button {
     font-family: 'Source Code Pro', monospace;
     font-weight: 500;
   }
