@@ -222,12 +222,12 @@ appye.createCommand(
     `;
     
     if (jsonAppObject.metadata[apps].externalApp){
-    appHtml += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`
+    appHtml += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`;
     } else {
-      appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`
+      appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`;
     }
 
-    appHtml += ` <hr>`
+    appHtml += ` <hr>`;
    }
 
 for (var commands in jsonAppObject.commands){
@@ -274,19 +274,19 @@ for (var commands in jsonAppObject.commands){
 
 <style>
   h1,h2,h3,h4,h5,h6{
-    color: #249000;
+    color: '#249000';
     font-weight: 800;
   }
   
   button {
     font-family: 'Source Code Pro', monospace;
     font-weight: 500;
-    background-color: #0F0F0F;
+    background-color: '#0F0F0F';
     color: white;
   }
   
   body {
-    background-color: #0F0F0F;
+    background-color: '#0F0F0F';
     color: white;
     font-family: 'Source Code Pro', monospace;
   }
@@ -326,16 +326,13 @@ function hideDiv(id) {
 <h1 title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
 <div id='Plugins'>
   ${pluginHtml}
-</div>
+</div>`;
 
-      
-      `
-
-        void new WinBox({
-        title: "List",
-        background: "#00000",
-        html: 
-      }); 
+new WinBox({
+    title: "LS - List",
+    background: '#249000',
+    html: mainHtml
+});
 
   },
 {
