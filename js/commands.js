@@ -300,6 +300,7 @@ new WinBox({
     title: "LS - List",
     background: '#249000',
     html: mainHtml,
+    class:'appye-body',
 });
 
   },
