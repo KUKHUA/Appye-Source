@@ -8,7 +8,7 @@ function firstSuccess(promises) {
       p.then(
         value => res(value),
         err => {
-          failures[i] = err
+          failures[i] = errox
           remaining--
           if (remaining === 0) {
             rej(failures)
@@ -98,13 +98,13 @@ const urlApps = [
   "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/apps.js"
   ];
 
-  const urlFox = [
-  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/fox.js",
-  "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/fox.js",
-  "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/fox.js",
-  "https://raw.githack.com/KUKHUA/Appye-Source/main/js/fox.js",
-  "https://codeberg.org/lucky/Appye-Source/raw/branch/main/js/fox.js",
-  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/fox.js"
+  const urlFs = [
+  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/Fs.js",
+  "https://nmn.pool.net.eu.org/cp/https/git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/Fs.js",
+  "https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/js/Fs.js",
+  "https://raw.githack.com/KUKHUA/Appye-Source/main/js/Fs.js",
+  "https://codeberg.org/lucky/Appye-Source/raw/branch/main/js/Fs.js",
+  "https://cdn.jsdelivr.net/gh/KUKHUA/Appye-Source/js/Fs.js"
   ];
 
  loadScript(urlDep);
@@ -112,7 +112,7 @@ const urlApps = [
  setTimeout(function (){
   loadScript(urlCommands);
   loadScript(urlApps);
-  loadScript(urlFox);
+  loadScript(urlFs);
  }, 1000);
 
 
