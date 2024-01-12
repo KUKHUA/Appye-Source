@@ -10,7 +10,7 @@ document.head.innerHTML += `
     font-weight: 500;
   }
   
-  .lsbody {
+  .wb-body-ls {
     font-family: 'Source Code Pro', monospace;
     background-color: black;
   }
