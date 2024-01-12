@@ -101,6 +101,8 @@ function cmd() {
     intCmd(commandIn);
 }
 
+idObj = {};
+
 function hideDiv(id) {
   var tmpID = document.getElementById(id);
   var tmpIDText = document.getElementById(id + "Text");
