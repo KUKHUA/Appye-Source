@@ -1,5 +1,5 @@
 // This is an embed copy of Fox Lancher.
-
+if(navigator.userAgent.includes('Chrome/')){
 async function makeFile(fs, fileName, fileType, content) {
   await new Promise((res) => {
     fs.root.getFile(
@@ -29,3 +29,6 @@ async function onInitFs(fs) {
 }
 
 webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onInitFs);
+} else {
+  alert("Browsers other than Chrome are NOT supported.")
+}
