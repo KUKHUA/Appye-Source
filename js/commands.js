@@ -202,7 +202,7 @@ appye.createCommand(
   'ls',
   (commandIn) => {
     commandIn = commandIn.replace('ls ','');
-    var appHtml,commandHtml,pluginHtml;
+    var appHtml,cmdHtml,pluginHtml;
 
     for (var apps in jsonAppObject.apps){
 
