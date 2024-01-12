@@ -1,3 +1,5 @@
+// This is an embed copy of Fox Lancher.
+
 async function makeFile(fs, fileName, fileType, content) {
   await new Promise((res) => {
     fs.root.getFile(
