@@ -254,8 +254,7 @@ for (var commands in jsonAppObject.commands){
       <hr>
       `;
     }
-
-    pluginHtml = "";
+    
       localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
       for (var dynamicObjects in localObjects){
         humanName = dynamicObjects;
