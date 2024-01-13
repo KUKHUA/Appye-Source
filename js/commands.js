@@ -212,18 +212,18 @@ appye.createCommand(
       let description = [object][items].desc;
       let tags = [object][items].tags;
 
-      [htmlVar] += `<h2><img src="${icon}" alt= “${title}'s Icon” width="30" height="30"> ${title}</h2>
+      htmlVar += `<h2><img src="${icon}" alt= “${title}'s Icon” width="30" height="30"> ${title}</h2>
       <h3 id="by-vendor-">by ${vendor}</h3>
       <p>${description}</p>
       `;
 
       if (jsonAppObject.metadata[items].externalApp){
-        [htmlVar] += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`;
+        htmlVar += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`;
         } else {
-          [htmlVar] += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`;
+          htmlVar += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`;
         }
 
-        [htmlVar] += ` <hr>`;
+        htmlVar += ` <hr>`;
 
      }
     }
