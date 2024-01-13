@@ -8,7 +8,7 @@ function firstSuccess(promises) {
       p.then(
         value => res(value),
         err => {
-          failures[i] = errox
+          failures[i] = error
           remaining--
           if (remaining === 0) {
             rej(failures)
@@ -73,7 +73,7 @@ const urlApps = [
   ];
 
   const urlFs = [
-  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/Fs.js",
+  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/fs.js",
   ];
     const urlCss = [
   "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/css.js",

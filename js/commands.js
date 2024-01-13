@@ -295,10 +295,10 @@ var idObj = {};
 </div>`;
 
 new WinBox({
-    title: "LS - List",
+    title: "List",
     background: '#249000',
     html: mainHtml,
-    class:'my-theme',
+    class:'appyebody',
 });
 
   },
