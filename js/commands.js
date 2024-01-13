@@ -206,7 +206,7 @@ appye.createCommand(
 
     function getHtml(object, type) {
       for (var items in object) {
-        let htmlVar;
+        var htmlVar;
         let icon = getIcon(items);
         let title = jsonAppObject.metadata[items].humanName
         let vendor = jsonAppObject.metadata[items].vendor;
