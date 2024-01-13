@@ -203,29 +203,27 @@ appye.createCommand(
   (commandIn) => {
     commandIn = commandIn.replace('ls ','');
     var appHtml,cmdHtml,pluginHtml;
-
-    function getHtml(object,htmlVar){
-     for (var items in object){
-      let icon = getIcon(items)
-      let title = [object][items].title;
-      let vendor = [object][items].vendor;
-      let description = [object][items].desc;
-      let tags = [object][items].tags;
-
-      htmlVar += `<h2><img src="${icon}" alt= “${title}'s Icon” width="30" height="30"> ${title}</h2>
-      <h3 id="by-vendor-">by ${vendor}</h3>
-      <p>${description}</p>
-      `;
-
-      if (jsonAppObject.metadata[items].externalApp){
-        htmlVar += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`;
+    
+    function getHtml(object, htmlVar) {
+      for (var items in object) {
+        let icon = getIcon(object[items]);
+        let title = object[items].title;
+        let vendor = object[items].vendor;
+        let description = object[items].desc;
+        let tags = object[items].tags;
+    
+        htmlVar += `<h2><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h2>
+        <h3 id="by-vendor-">by ${vendor}</h3>
+        <p>${description}</p>`;
+    
+        if (object[items].metadata.externalApp) {
+          htmlVar += `<p>Id: ${items}</p> <button onclick="window.open('${object[items].url}')">Open</button> <p><a href="${object[items].url}">or drag this to a new tab</a></p>`;
         } else {
-          htmlVar += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`;
+          htmlVar += `<p>Id: ${items}</p> <button onclick="intCmd('app-load ${items}')">Open</button>`;
         }
-
+    
         htmlVar += ` <hr>`;
-
-     }
+      }
     }
 
 getHtml(jsonAppObject.apps,appHtml)
