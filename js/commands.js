@@ -212,16 +212,17 @@ appye.createCommand(
         let vendor = jsonAppObject.metadata[items].vendor;
         let description = jsonAppObject.metadata[items].desc;
         let tags = jsonAppObject.metadata[items].tags;
+        let exampleFlag = false;
         if(jsonAppObject.metadata[items].examples){
           let examples = jsonAppObject.metadata[items].examples;
-          let exampleFlag = true;
+          exampleFlag = true;
         }
     
         htmlVar += `<h2><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h2>
         <h3 id="by-vendor-">by ${vendor}</h3>
         <p>${description}</p>`;
 
-        if(exampleFlag){
+        if(exampleFlag == true){
           htmlVar += `<h2>Examples:</h2>
           <p>${examples}</p>`
         }
