@@ -203,23 +203,31 @@ appye.createCommand(
   (commandIn) => {
     commandIn = commandIn.replace('ls ','');
     var appHtml,cmdHtml,pluginHtml;
-    
+
     function getHtml(object, htmlVar) {
       for (var items in object) {
-        let icon = getIcon(object[items]);
-        let title = object[items].title;
-        let vendor = object[items].vendor;
-        let description = object[items].desc;
-        let tags = object[items].tags;
+        let icon = getIcon(items);
+        let title = jsonAppObject.metadata[items].humanName
+        let vendor = jsonAppObject.metadata[items].vendor;
+        let description = jsonAppObject.metadata[items].desc;
+        let tags = jsonAppObject.metadata[items].tags;
+        if(jsonAppObject.metadata[items].examples){
+          let examples = jsonAppObject.metadata[items].examples;
+        }
     
         htmlVar += `<h2><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h2>
         <h3 id="by-vendor-">by ${vendor}</h3>
         <p>${description}</p>`;
-    
+
+        if(jsonAppObject.metadata[items].examples){
+          htmlVar += `<h2>Examples:</h2>
+          <p>${examples}</p>`
+        }
+
         if (object[items].metadata.externalApp) {
-          htmlVar += `<p>Id: ${items}</p> <button onclick="window.open('${object[items].url}')">Open</button> <p><a href="${object[items].url}">or drag this to a new tab</a></p>`;
+          htmlVar += `<p>Id: ${items}</p> <button class="appyebutton" onclick="window.open('${object[items].url}')">Open</button> <p><a href="${object[items].url}">or drag this to a new tab</a></p>`;
         } else {
-          htmlVar += `<p>Id: ${items}</p> <button onclick="intCmd('app-load ${items}')">Open</button>`;
+          htmlVar += `<p>Id: ${items}</p> <button class="appyebutton" onclick="intCmd('app-load ${items}')">Open</button>`;
         }
     
         htmlVar += ` <hr>`;
@@ -257,7 +265,7 @@ for (var commands in jsonAppObject.commands){
       for (var dynamicObjects in localObjects){
         humanName = dynamicObjects;
         code = localObjects[dynamicObjects].code;
-        pluginHtml += `<h2>${humanName} </h2> <button onclick="intCmd('plugin del ${dynamicObjects}')"> Remove plugin</button>
+        pluginHtml += `<h2>${humanName} </h2> <button class="appyebutton" onclick="intCmd('plugin del ${dynamicObjects}')"> Remove plugin</button>
         <h3>Code: </h3>
         <p>${code}</p>
         <hr>
