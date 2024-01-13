@@ -204,31 +204,31 @@ appye.createCommand(
     commandIn = commandIn.replace('ls ','');
     var appHtml,cmdHtml,pluginHtml;
 
-    for (var apps in jsonAppObject.apps){
+    function getHtml(object,htmlVar){
+     for (var items in object){
+      let icon = getIcon(items)
+      let title = [object][items].title;
+      let vendor = [object][items].vendor;
+      let description = [object][items].desc;
+      let tags = [object][items].tags;
 
-    let icon = getIcon(apps);
-    
-    let humanName = jsonAppObject.apps[apps].title;
+      [htmlVar] += `<h2><img src="${icon}" alt= “${title}'s Icon” width="30" height="30"> ${title}</h2>
+      <h3 id="by-vendor-">by ${vendor}</h3>
+      <p>${description}</p>
+      `;
 
-    let vendor = jsonAppObject.metadata[apps].vendor;
-    
-    let desc = jsonAppObject.metadata[apps].desc;
+      if (jsonAppObject.metadata[items].externalApp){
+        [htmlVar] += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`;
+        } else {
+          [htmlVar] += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`;
+        }
 
-    let tags = jsonAppObject.metadata[apps].tags;
-    
-    appHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
-    <h3 id="by-vendor-">by ${vendor}</h3>
-    <p>${desc}</p>
-    `;
-    
-    if (jsonAppObject.metadata[apps].externalApp){
-    appHtml += `<p>Id: ${apps}</p> <button onclick="window.open('${jsonAppObject.apps[apps].url}')">Open</button> <p><a href="${jsonAppObject.apps[apps].url}">or drag this to a new tab</a></p>`;
-    } else {
-      appHtml += `<p>Id: ${apps}</p> <button onclick="intCmd('app-load ${apps}')">Open</button>`;
+        [htmlVar] += ` <hr>`;
+
+     }
     }
 
-    appHtml += ` <hr>`;
-   }
+getHtml(jsonAppObject.apps,appHtml)
 
 for (var commands in jsonAppObject.commands){
       humanName = jsonAppObject.metadata[commands].humanName;
@@ -254,7 +254,7 @@ for (var commands in jsonAppObject.commands){
       <hr>
       `;
     }
-    
+
       localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
       for (var dynamicObjects in localObjects){
         humanName = dynamicObjects;
@@ -275,7 +275,7 @@ for (var commands in jsonAppObject.commands){
 var idObj = {};
   
 </script>
-<button  class="appyebutton"style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button class="appye-button" style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
+<button  class="appyebutton"style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button class="appyebutton" style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
 
 
 <h1 class="appyeheader" font-style="italic" title="You can click to show/hide this section." id="AppsText" style="cursor:pointer;" onclick='hideDiv("Apps")'> > Apps</h1>
