@@ -232,12 +232,14 @@ appye.createCommand(
         }
     
         htmlVar += ` <hr>`;
-        switch(type){
-          case 'appHtml':
-            appHtml = htmlVar
-            break;
-        }
       }
+
+      switch(type){
+        case 'appHtml':
+          appHtml = htmlVar
+          break;
+      }
+      
     }
 
 getHtml(jsonAppObject.apps,'appHtml')
