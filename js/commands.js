@@ -204,8 +204,9 @@ appye.createCommand(
     commandIn = commandIn.replace('ls ','');
     var appHtml,cmdHtml,pluginHtml;
 
-    function getHtml(object, htmlVar) {
+    function getHtml(object, type) {
       for (var items in object) {
+        let htmlVar;
         let icon = getIcon(items);
         let title = jsonAppObject.metadata[items].humanName
         let vendor = jsonAppObject.metadata[items].vendor;
@@ -231,10 +232,15 @@ appye.createCommand(
         }
     
         htmlVar += ` <hr>`;
+        switch(type){
+          case 'appHtml':
+            appHtml = htmlVar
+            break;
+        }
       }
     }
 
-getHtml(jsonAppObject.apps,appHtml)
+getHtml(jsonAppObject.apps,'appHtml')
 
 for (var commands in jsonAppObject.commands){
       humanName = jsonAppObject.metadata[commands].humanName;
