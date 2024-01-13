@@ -276,31 +276,29 @@ for (var commands in jsonAppObject.commands){
 var idObj = {};
   
 </script>
-<body class="appye-body">
-<button  class="appye-button"style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button class="appye-button" style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
+<button  class="appyebutton"style="cursor:pointer;" title="Allows you to add an app, command, etc." onclick="">Add...</button> <button class="appye-button" style="cursor:pointer;" title="Allows you to import a FLZ (pre-packaged app/game) into Appye." onclick="">Import FLZ</button>
 
 
-<h1 class="appye-header" font-style="italic" title="You can click to show/hide this section." id="AppsText" style="cursor:pointer;" onclick='hideDiv("Apps")'> > Apps</h1>
+<h1 class="appyeheader" font-style="italic" title="You can click to show/hide this section." id="AppsText" style="cursor:pointer;" onclick='hideDiv("Apps")'> > Apps</h1>
 <div id='Apps'>
   ${appHtml}
 </div>
 
-<h1 class="appye-header" title="You can click to show/hide this section." id="CommandsText"style="cursor:pointer;" onclick='hideDiv("Commands")'> > Commands</h1>
+<h1 class="appyeheader" title="You can click to show/hide this section." id="CommandsText"style="cursor:pointer;" onclick='hideDiv("Commands")'> > Commands</h1>
 <div id='Commands'>
   ${cmdHtml}
 </div>
 
-<h1 class="appye-header" title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
+<h1 class="appyeheader" title="You can click to show/hide this section." id="PluginsText"style="cursor:pointer;" onclick='hideDiv("Plugins")'> > Plugins</h1>
 <div id='Plugins'>
   ${pluginHtml}
-</div>
-</body>`;
+</div>`;
 
 new WinBox({
     title: "LS - List",
     background: '#249000',
     html: mainHtml,
-    class:'appye-body',
+    class:'appyebody',
 });
 
   },

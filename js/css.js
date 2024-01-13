@@ -1,10 +1,10 @@
 document.head.innerHTML += `
-  .appye-header{
+  .appyeheader{
     color: green;
     font-weight: 800;
   }
   
-  .appye-button {
+  .appyebutton {
     font-family: 'Source Code Pro', monospace;
     font-weight: 500;
     color:#DDDDDD;
@@ -12,7 +12,7 @@ document.head.innerHTML += `
     border-radius: 5px;
   }
   
-  .winbox.appye-body .wb-body {
+  .winbox.appyebody .wb-body {
     font-family: 'Source Code Pro', monospace;
     background-color: #0F0F0F;
     color:#DDDDDD;
