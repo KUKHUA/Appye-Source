@@ -12,10 +12,9 @@ document.head.innerHTML += `
     border-radius: 5px;
   }
   
-  .winbox.appyebody .wb-body {
-    font-family: 'Source Code Pro', monospace;
-    background-color: #0F0F0F;
-    color:#DDDDDD;
-  }
+  .winbox.my-theme .wb-body {
+    color: #fff;
+    background: #131820;
+}
 
 `
