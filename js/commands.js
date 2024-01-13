@@ -236,38 +236,14 @@ appye.createCommand(
 
       switch(type){
         case 'appHtml':
-          appHtml = htmlVar
+          appHtml += htmlVar
           break;
       }
-      
+
     }
 
 getHtml(jsonAppObject.apps,'appHtml')
-
-for (var commands in jsonAppObject.commands){
-      humanName = jsonAppObject.metadata[commands].humanName;
-
-      vendor = jsonAppObject.metadata[commands].vendor;
-      
-      desc = jsonAppObject.metadata[commands].desc;
-
-      examples = jsonAppObject.metadata[commands].examples;
-      tags = jsonAppObject.metadata[commands].tags;
-   
-      if(jsonAppObject.metadata.icon){
-       icon = jsonAppObject.metadata.icon;
-      } else if (!jsonAppObject.metadata[commands].icon || jsonAppObject.metadata[commands].icon == null || jsonAppObject.metadata[commands].icon == ""){
-        icon = "https://openclipart.org/image/800px/301359";
-      }
-
-      cmdHtml += `<h2><img src="${icon}" alt= “${humanName} Icon” width="30" height="30"> ${humanName}</h2>
-      <h3 id="by-vendor-">by ${vendor}</h3>
-      <p>${desc}</p>
-      <h2>Examples:</h2>
-      <p>${examples}</p>
-      <hr>
-      `;
-    }
+getHtml(jsonAppObject.commands,'cmdHtml')
 
       localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
       for (var dynamicObjects in localObjects){
