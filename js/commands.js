@@ -203,50 +203,36 @@ appye.createCommand(
   (commandIn) => {
     commandIn = commandIn.replace('ls ','');
     var appHtml,cmdHtml,pluginHtml;
-
-    function getHtml(object, type) {
+    localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
+    function getHtml(object) {
+      var htmlVar = ''; // Initialize htmlVar to an empty string outside the loop
       for (var items in object) {
-        var htmlVar;
-        let icon = getIcon(items);
-        let title = jsonAppObject.metadata[items].humanName
-        let vendor = jsonAppObject.metadata[items].vendor;
-        let description = jsonAppObject.metadata[items].desc;
-        let tags = jsonAppObject.metadata[items].tags;
-        let exampleFlag = false;
-        let examples;
-        if(jsonAppObject.metadata[items].examples){
-          examples = jsonAppObject.metadata[items].examples;
-          exampleFlag = true;
+        let metadata = jsonAppObject.metadata[items];
+        if (!metadata) {
+          console.error(`No metadata found for item ${items}`);
+          continue;
         }
+    
+        let icon = getIcon(items);
+        let title = metadata.humanName;
+        let vendor = metadata.vendor;
+        let description = metadata.desc;
+        let examples = metadata.examples;
     
         htmlVar += `<h2><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h2>
         <h3 id="by-vendor-">by ${vendor}</h3>
         <p>${description}</p>`;
-
-        if(exampleFlag == true){
+    
+        if(examples){
           htmlVar += `<h2>Examples:</h2>
           <p>${examples}</p>`
         }
-
-        if (jsonAppObject.metadata[items].externalApp) {
-          htmlVar += `<p>Id: ${items}</p> <button class="appyebutton" onclick="window.open('${object[items].url}')">Open</button> <p><a href="${object[items].url}">or drag this to a new tab</a></p>`;
-        } else {
-          htmlVar += `<p>Id: ${items}</p> <button class="appyebutton" onclick="intCmd('app-load ${items}')">Open</button>`;
-        }
-    
-        htmlVar += ` <hr>`;
       }
-
-      switch(type){
-        case 'appHtml':
-          appHtml += htmlVar
-          break;
-      }
-
+      return htmlVar; // Return the generated HTML
     }
 
-getHtml(jsonAppObject.apps,'appHtml')
-getHtml(jsonAppObject.commands,'cmdHtml')
+  appHtml = getHtml(jsonAppObject.apps)
+  cmdHtml = getHtml(jsonAppObject.commands)
 
       localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
       for (var dynamicObjects in localObjects){
