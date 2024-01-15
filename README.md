@@ -41,6 +41,5 @@ Note: Some websites may not work with Appye. Most Desmos state calculators do wo
 Under [	Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Structure
-- Builds of Appye, obfucated curently. **Path**:[/builds/offline/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/builds/offline)
 - Javascript source code. **Path**:[/js/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/js/)
 - Dependencies of Appye. **Path**: [/dependencies/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/dependencies)
