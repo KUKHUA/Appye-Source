@@ -1,6 +1,9 @@
 # Appye
 
-Appye is bookmarklet that allows you to access and hide websites.
+Appye is bookmarklet that is getting more and more complex.
+It embeds a "web-os" in any page. 
+
+PS: Please help with user interface desgin.
 
 
 
@@ -29,8 +32,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
 4. Right-click the bookmark bar and select "Add page..."
 5. Choose a name for the bookmarklet (it doesn't matter what you put).
 6. Paste the copied code in the URL section, using CTRL+V.
-7. Now on a website, press the bookmark you created. It should pull up a prompt saying "Command". Press the "c" key anytime to open this prompt. Type "ls apps", then enter to list all apps and games aviablblie. It will pull up a GUI where you can click "Open app". You can also open a app manually with the command "app-load ", then the app ID.
-8. Now lets introduce you more into commands, press "c" to open up a command prompt, then type "ls commands". This will show info about all the commands installed into Appye. Read the exmaples, and you should understand how to use them.
+7. Now on a website, press the bookmark you created. It should pull up a prompt saying "Command". Press the "c" key anytime to open this prompt. Type "ls", standing for list, and browse the default items. You can click the title of each section to hide them. The "Add..." and "Import FLZ" buttons are a WIP, so ignore them for now.
 
 For information about how to create your own apps/commands, please go [here](docs.md)
 
@@ -39,6 +41,5 @@ Note: Some websites may not work with Appye. Most Desmos state calculators do wo
 Under [	Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Structure
-- Builds of Appye, obfucated curently. **Path**:[/builds/offline/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/builds/offline)
-- Javascript source code, including the [loader](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/js/loader.js) and [main script](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/js/beta.js). **Path**: [/js/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/js)
+- Javascript source code. **Path**:[/js/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/js/)
 - Dependencies of Appye. **Path**: [/dependencies/](https://git.basicfan.eu.org/lucky/Appye-Source/src/branch/main/dependencies)
