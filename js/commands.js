@@ -206,6 +206,7 @@ appye.createCommand(
     localObjects = JSON.parse(localStorage.getItem('imapluginThis'));
     function getHtml(object) {
       var htmlVar = ''; // Initialize htmlVar to an empty string outside the loop
+      var title = '';
       for (var items in object) {
         let metadata = jsonAppObject.metadata[items];
         if (!metadata) {
@@ -214,13 +215,13 @@ appye.createCommand(
         }
     
         let icon = getIcon(items);
-        let title = metadata.humanName;
+        title = metadata.humanName;
         let vendor = metadata.vendor;
         let description = metadata.desc;
         let examples = metadata.examples;
     
-        htmlVar += `<h2><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h2>
-        <h3 id="by-vendor-">by ${vendor}</h3>
+        htmlVar += `<h1><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h1>
+        <h2 id="by-vendor-">by ${vendor}</h2>
         <p>${description}</p>`;
     
         if(examples){
