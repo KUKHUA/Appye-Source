@@ -213,8 +213,9 @@ appye.createCommand(
         let description = jsonAppObject.metadata[items].desc;
         let tags = jsonAppObject.metadata[items].tags;
         let exampleFlag = false;
+        let examples;
         if(jsonAppObject.metadata[items].examples){
-          let examples = jsonAppObject.metadata[items].examples;
+          examples = jsonAppObject.metadata[items].examples;
           exampleFlag = true;
         }
     

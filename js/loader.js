@@ -8,7 +8,7 @@ function firstSuccess(promises) {
       p.then(
         value => res(value),
         err => {
-          failures[i] = error
+          failures[i] = error;
           remaining--
           if (remaining === 0) {
             rej(failures)
@@ -19,11 +19,14 @@ function firstSuccess(promises) {
   })
  }
  
- function loadScript(urls) {
+ function loadScript(path) {
   const fetchAborter = new AbortController();
- 
+
+  // Create an array of URLs with each mirror and proxy
+  const allUrls = [...mirrors.map(mirror => mirror + path), ...proxies.flatMap(proxy => mirrors.map(mirror => proxy + encodeURIComponent(mirror + path)))];
+
   return firstSuccess(
-    urls.map(url =>
+    allUrls.map(url =>
       fetch(url, { signal: fetchAborter.signal })
         .then(resp => {
           if (resp.status === 200) {
@@ -40,7 +43,7 @@ function firstSuccess(promises) {
     )
   )
     .catch(failures => {
-      throw new Error(`All providers are offline or blocked. Please try loging in to your school's network.`);
+      throw new Error(`All providers are offline or blocked. Please try logging in to your school's network.`);
     })
     .then(() => {
       fetchAborter.abort();
@@ -55,39 +58,26 @@ function firstSuccess(promises) {
       }
     });
 }
- // The list of URLs. The first success will be loaded.
- const urlDep = [
-  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/dependencies/0.2.6_winbox.bundle.min.js",
- ];
 
- const urlBase = [
-  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/base.js",
- ];
-
- const urlCommands = [
-"https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/commands.js",
+const mirrors = [
+  'https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/',
+  'https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/',
+  'https://codeberg.org/lucky/Appye-Source/raw/branch/main/'
 ];
 
-const urlApps = [
-  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/apps.js",
-  ];
-
-  const urlFs = [
-  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/fs.js",
-  ];
-    const urlCss = [
-  "https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/js/css.js",
-  ];
+const proxies = [
+  'https://api.codetabs.com/v1/proxy?quest=',
+  'https://corsproxy.io/?',
+  'https://corsproxy.org/?',
+  'https://api.allorigins.win/raw?url=',
+]
 
 
- loadScript(urlDep);
- loadScript(urlBase);
- setTimeout(function (){
-  loadScript(urlCommands);
-  loadScript(urlApps);
-  loadScript(urlFs);
-  loadScript(urlCss);
- }, 1000);
-
-
- 
+loadScript('dependencies/0.2.6_winbox.bundle.min.js');
+loadScript('js/base.js');
+setTimeout(function (){
+ loadScript('js/commands.js');
+ loadScript('js/apps.js');
+ loadScript('js/fs.js');
+ loadScript('js/css.js');
+}, 1000);
