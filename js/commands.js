@@ -225,15 +225,7 @@ appye.createCommand(
         if(object = jsonAppObject.apps){
           htmlVar += `<button class="appyebutton" onclick="intCmd('app-load ${items}')"> Open App </button>`;
         }
-
-        if(examples){
-          htmlVar += `<h4>Examples:</h4>`
-          var exmpCount;
-          for(example in examples){
-            exmpCount += 1;
-            htmlVar += `${example[exmpCount]} <button class="appyebutton" onclick="${example[exmpCount]}"> Run </button>`
-          }
-        }
+        htmlVar += `<hr class="appyedivider">`;
       }
       return htmlVar; // Return the generated HTML
     }
