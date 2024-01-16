@@ -153,10 +153,10 @@ appye.createCommand(
         <h3 id="by-vendor-">by ${vendor}</h3>
         <p>${description}</p>`;
 
-        if(object = jsonAppObject.apps && metadata.externalApp){
+        if(object == jsonAppObject.apps && metadata.externalApp){
           htmlVar += `<button class="appyebutton" onclick="window.open(${jsonAppObject.apps[items].url})"> Open URL</button>
            <a href="${jsonAppObject.apps[items].url}">or drag this to a new tab</a>`;
-        } else if (object = jsonAppObject.apps){
+        } else if (object == jsonAppObject.apps){
            htmlVar += `<button class="appyebutton" onclick="intCmd('app-load ${items}')"> Open App </button>`;
         }
 
