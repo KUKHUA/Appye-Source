@@ -219,7 +219,7 @@ appye.createCommand(
         let examples = metadata.examples;
     
         htmlVar += `<h1><img src="${icon}" alt="${items}'s Icon" width="30" height="30"> ${items}</h1>
-        <h2 id="by-vendor-">by ${vendor}</h2>
+        <h3 id="by-vendor-">by ${vendor}</h3>
         <p>${description}</p>`;
 
         if(object = jsonAppObject.apps){
@@ -227,9 +227,11 @@ appye.createCommand(
         }
 
         if(examples){
-          htmlVar += `<h2>Examples:</h2>`
+          htmlVar += `<h4>Examples:</h4>`
+          var exmpCount;
           for(example in examples){
-            htmlVar += `${example} <button class="appyebutton" onclick="${example}"> Run </button>`
+            exmpCount += 1;
+            htmlVar += `${example[exmpCount]} <button class="appyebutton" onclick="${example[exmpCount]}"> Run </button>`
           }
         }
       }
