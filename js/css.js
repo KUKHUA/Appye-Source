@@ -18,5 +18,10 @@ document.head.innerHTML += `
     background-color: #0F0F0F;
     color:#DDDDDD;
   }
+
+  hr.appyeheader {
+  border-top: 8px solid #DDDDDD;
+  border-radius: 5px;
+}
   </style>
 `
