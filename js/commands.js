@@ -218,13 +218,19 @@ appye.createCommand(
         let description = metadata.desc;
         let examples = metadata.examples;
     
-        htmlVar += `<h1><img src="${icon}" alt="${metadata.humanName}'s Icon" width="30" height="30"> ${metadata.humanName}</h1>
+        htmlVar += `<h1><img src="${icon}" alt="${items}'s Icon" width="30" height="30"> ${items}</h1>
         <h2 id="by-vendor-">by ${vendor}</h2>
         <p>${description}</p>`;
-    
+
+        if(object = jsonAppObject.apps){
+          htmlVar += `<button class="appyebutton" onclick="intCmd('app-load ${items}')"> Open App </button>`;
+        }
+
         if(examples){
-          htmlVar += `<h2>Examples:</h2>
-          <p>${examples}</p>`
+          htmlVar += `<h2>Examples:</h2>`
+          for(example in examples){
+            htmlVar += `${example} <button class="appyebutton" onclick="${example}"> Run </button>`
+          }
         }
       }
       return htmlVar; // Return the generated HTML
