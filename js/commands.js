@@ -147,16 +147,9 @@ appye.createCommand(
         let icon = getIcon(items);
         let vendor = metadata.vendor;
         let description = metadata.desc;
-        let title;
-        if(object = jsonAppObject.apps){
-         title = jsonAppObject.apps.title;
-        } else if (object = jsonAppObject.commands){
-          title = metadata.humanName;
-        } else {
-          title = items;
-        }
+
     
-        htmlVar += `<h1><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h1>
+        htmlVar += `<h1><img src="${icon}" alt="${items}'s Icon" width="30" height="30"> ${items}</h1>
         <h3 id="by-vendor-">by ${vendor}</h3>
         <p>${description}</p>`;
 
