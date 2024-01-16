@@ -152,6 +152,8 @@ appye.createCommand(
          title = jsonAppObject.apps.title;
         } else if (object = jsonAppObject.commands){
           title = metadata.humanName;
+        } else {
+          title = items;
         }
     
         htmlVar += `<h1><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h1>
