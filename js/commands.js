@@ -216,15 +216,24 @@ appye.createCommand(
         let icon = getIcon(items);
         let vendor = metadata.vendor;
         let description = metadata.desc;
-        let examples = metadata.examples;
+        let title;
+        if(object = jsonAppObject.apps){
+         title = jsonAppObject.apps.title;
+        } else if (object = jsonAppObject.commands){
+          title = metadata.humanName;
+        }
     
-        htmlVar += `<h1><img src="${icon}" alt="${items}'s Icon" width="30" height="30"> ${items}</h1>
+        htmlVar += `<h1><img src="${icon}" alt="${title}'s Icon" width="30" height="30"> ${title}</h1>
         <h3 id="by-vendor-">by ${vendor}</h3>
         <p>${description}</p>`;
 
-        if(object = jsonAppObject.apps){
-          htmlVar += `<button class="appyebutton" onclick="intCmd('app-load ${items}')"> Open App </button>`;
+        if(object = jsonAppObject.apps && metadata.externalApp){
+          htmlVar += `<button class="appyebutton" onclick="window.open(${jsonAppObject.apps[items].url})"> Open URL</button>
+           <a href="${jsonAppObject.apps[items].url}">or drag this to a new tab</a>`;
+        } else if (object = jsonAppObject.apps){
+           htmlVar += `<button class="appyebutton" onclick="intCmd('app-load ${items}')"> Open App </button>`;
         }
+
         htmlVar += `<hr class="appyedivider">`;
       }
       return htmlVar; // Return the generated HTML
