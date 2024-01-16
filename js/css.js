@@ -19,7 +19,7 @@ document.head.innerHTML += `
     color:#DDDDDD;
   }
 
-  hr.appyeheader {
+  .appyeheader {
   border-top: 8px solid #DDDDDD;
   border-radius: 5px;
 }
