@@ -61,8 +61,10 @@ function firstSuccess(promises) {
 
 const mirrors = [
   'https://git.basicfan.eu.org/lucky/Appye-Source/raw/branch/main/',
+  'https://codeberg.org/lucky/Appye-Source/raw/branch/main/',
+  'https://notabug.org/Tag6423/Appye/raw/main/',
   'https://raw.githubusercontent.com/KUKHUA/Appye-Source/main/',
-  'https://codeberg.org/lucky/Appye-Source/raw/branch/main/'
+  'https://raw.githack.com/KUKHUA/Appye-Source/main/',
 ];
 
 const proxies = [
