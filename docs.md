@@ -1,4 +1,4 @@
-# Appye Documentation
+# Appye Docs
 ## Creating Apps
 Start with this template:
 ```
