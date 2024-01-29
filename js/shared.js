@@ -169,27 +169,41 @@ user-select: none;
 }
 
 .appyebutton {
-font-family: 'Source Code Pro', monospace;
-font-weight: 500;
-background-color: #0F0F0F;
-color: white;
-border-radius: 10px;
-box-shadow: 2px 2px 2px #272727;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  border:none;
+  background-color: #272727;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .appyebutton:hover {
-background-color: #272727;
+  background-color: #5a5858;
 }
 
 .winbox.appye .wb-body {
 background-color: #0F0F0F;
 color: white;
 font-family: 'Source Code Pro', monospace;
+border-radius: 10px;
+}
+
+.winbox.appye {
+  border-radius: 10px;
 }
 
 .appyedivider {
 border-top: 5px solid #d1cccc;
 border-radius: 10px;
+margin-bottom: 5px;
+margin-top: 5px;
+margin-left: 5px;
+margin-right: 5px;
 }
 
 .apppyeinput {
@@ -198,12 +212,51 @@ font-weight: 500;
 background-color: #272727;
 color: white;
 border-radius: 5px;
+margin-bottom: 5px;
+margin-top: 5px;
+margin-left: 5px;
+margin-right: 5px;
 }
 
 .hideme {
 display: none;
 }
 
+.app {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #272727;
+  height: fit-content;
+  width: fit-content;
+  aspect-ratio: 1 / 1; 
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.app:hover {
+  background-color: #5a5858;
+  cursor:pointer;
+}
+
+.appimg {
+  width: 80px;
+  height: 80px;
+  border-radius: 25px;
+}
+
+.appgrid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  margin: 0%;
+  width: fit-content;
+  height: fit-content;
+  grid-gap: 10px; /* Add some gap between the grid items */
+  justify-content: start;
+  align-content: start; /* Align the grid items to the start */
+}
 </style>
 `;
 

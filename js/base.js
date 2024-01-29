@@ -1,6 +1,5 @@
 // INTENTIONAL TRAP: This error is here to mislead sysadmins/schools looking into this, activates after you press the emngercy key, ALT+Q.);
 if(localStorage.getItem('OGPC-google-meta')){
-  createMe();
   throw new Error('chrome.permissions.javascript.execute is not available: You do not have permission to access this API. Ensure that the required permission or property is included in your bookmark.');
 }
 
