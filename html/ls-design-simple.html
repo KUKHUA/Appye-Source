@@ -1,0 +1,115 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,500;0,900;1,500;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<style>
+  .appyeheading{
+  color: #249000;
+  font-weight: 800;
+  user-select: none;
+  }
+  
+  .appyebutton {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  border:none;
+  background-color: #272727;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  }
+  
+  .appyebutton:hover {
+  background-color: #5a5858;
+  }
+  
+  .appye {
+  background-color: #0F0F0F;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  padding: 5px;
+  }
+  
+  .appyedivider {
+  border-top: 5px solid #d1cccc;
+  border-radius: 10px;
+  }
+  
+  .apppyeinput {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  background-color: #272727;
+  color: white;
+  border-radius: 5px;
+  }
+  
+  .hideme {
+  display: none;
+  }
+
+  .app {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #272727;
+    height: fit-content;
+    width: fit-content;
+    aspect-ratio: 1 / 1; 
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .app:hover {
+    background-color: #5a5858;
+  }
+  .appimg {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  .appgrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    margin: 0%;
+    width: fit-content;
+    height: fit-content;
+    grid-gap: 10px; /* Add some gap between the grid items */
+    justify-content: start;
+    align-content: start; /* Align the grid items to the start */
+  }
+ </style> 
+<body class="appye">
+<button class="appyebutton" style="cursor:pointer;" title="Add an app or a command." onclick=""><span class="material-symbols-outlined"> library_add </span></button> 
+<button class="appyebutton" style="cursor:pointer;" title="Import an app into Appye." onclick=""><span class="material-symbols-outlined"> publish </span></button>
+
+<div class="appgrid">
+
+  <div class="app" id="googleApp">
+    <img class="appimg" src="https://www.google.com/favicon.ico"></img>
+    <h3>Google</h3>
+    <p>The Google search engine.</p>
+    <p><i>By</i> <b>Pascal</b></p>
+  </div>
+
+  <div class="app" id="desmosApp">
+    <img class="appimg" src="https://www.desmos.com/favicon.ico"></img>
+    <h3>Desmos</h3>
+    <p>You know what Desmos is!</p>
+    <p><i>By</i> <b>Pascal</b></p>
+  </div>
+
+  <div class="app" id="pipedApp">
+    <img class="appimg" src="https://www.youtube.com/favicon.ico"></img>
+    <h3>Piped</h3>
+    <p>A simple YouTube front-end.</p>
+    <p><i>By</i> <b>Pascal</b></p>
+  </div>
+
+</div>
+</body>
+
+
+
+
