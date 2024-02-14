@@ -83,11 +83,37 @@
     align-content: start; /* Align the grid items to the start */
   }
  </style> 
+
+<script>
+  function showHideDiv(showIds, hideIds) {
+  if (Array.isArray(showIds)) {
+    showIds.forEach(function(id) {
+      var elementToShow = document.getElementById(id);
+      elementToShow.style.display = 'block';
+    });
+  } else {
+    var elementToShow = document.getElementById(showIds);
+    elementToShow.style.display = 'block';
+  }
+  
+  if (Array.isArray(hideIds)) {
+    hideIds.forEach(function(id) {
+      var elementToHide = document.getElementById(id);
+      elementToHide.style.display = 'none';
+    });
+  } else {
+    var elementToHide = document.getElementById(hideIds);
+    elementToHide.style.display = 'none';
+  }
+}
+ </script>
+
 <body class="appye">
 <button class="appyebutton" style="cursor:pointer;" title="Add an app or a command." onclick=""><span class="material-symbols-outlined"> library_add </span></button> 
 <button class="appyebutton" style="cursor:pointer;" title="Import an app into Appye." onclick=""><span class="material-symbols-outlined"> publish </span></button>
+<button class="appyebutton" style="cursor:pointer;" title="View Commands" onclick="showHideDiv('commandgrid','appgrid')"><span class="material-symbols-outlined"> view_stream </span></button>
 
-<div class="appgrid">
+<div id="appgrid" class="appgrid">
 
   <div class="app" id="googleApp">
     <img class="appimg" src="https://www.google.com/favicon.ico"></img>
@@ -109,6 +135,9 @@
     <p>A simple YouTube front-end.</p>
     <p><i>By</i> <b>Pascal</b></p>
   </div>
+<div id="appgrid" class="appgrid">
+  
+</div>
 
 </div>
 </body>

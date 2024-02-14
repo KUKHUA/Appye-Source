@@ -18,8 +18,7 @@ appye.createApp(
       background: "#2F72DC"
     },
     {
-      author: "pascal",
+      author: "Pascal",
       description: "You know what desmos is.",
     }
   );
-  

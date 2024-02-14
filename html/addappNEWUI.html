@@ -1,0 +1,236 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,500;0,900;1,500;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<script src="../deps/0.2.6_winbox.bundle.min.js"></script>
+<script src="../js/shared.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/commands.js"></script>
+<script src="../js/apps.js"></script>
+<style>
+  .appyeheading{
+  color: #249000;
+  font-weight: 800;
+  user-select: none;
+  }
+  
+  .appyebutton {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  border:none;
+  background-color: #272727;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  }
+  
+  .appyebutton:hover {
+  background-color: #5a5858;
+  }
+  
+  .appye {
+  background-color: #0F0F0F;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  padding: 5px;
+  }
+  
+  .appyedivider {
+  border-top: 5px solid #d1cccc;
+  border-radius: 10px;
+  }
+  
+  .apppyeinput {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  background-color: #272727;
+  color: white;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border:none;
+  outline: none;
+  font-size: medium;
+  }
+
+  .apppyeinput:focus{
+    background-color: #5a5858;
+    border:none;
+  }
+
+  .hideme {
+  display: none;
+  }
+
+  .app {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #272727;
+    height: fit-content;
+    width: fit-content;
+    aspect-ratio: 1 / 1; 
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .app:hover {
+    background-color: #5a5858;
+  }
+  .appimg {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  .appgrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    margin: 0%;
+    width: fit-content;
+    height: fit-content;
+    grid-gap: 10px; /* Add some gap between the grid items */
+    justify-content: start;
+    align-content: start; /* Align the grid items to the start */
+  }
+ </style> 
+ <script>
+  function showHideDiv(showIds, hideIds) {
+  if (Array.isArray(showIds)) {
+    showIds.forEach(function(id) {
+      var elementToShow = document.getElementById(id);
+      elementToShow.style.display = 'block';
+    });
+  } else {
+    var elementToShow = document.getElementById(showIds);
+    elementToShow.style.display = 'block';
+  }
+  
+  if (Array.isArray(hideIds)) {
+    hideIds.forEach(function(id) {
+      var elementToHide = document.getElementById(id);
+      elementToHide.style.display = 'none';
+    });
+  } else {
+    var elementToHide = document.getElementById(hideIds);
+    elementToHide.style.display = 'none';
+  }
+}
+ </script>
+
+<script>
+  function userInterfaceCreate(){
+    let usertitle = document.getElementById('userTitle').value;
+    let userid = document.getElementById('userID').value;
+    let userauthor = document.getElementById('userAuthor').value;
+    let userdescription = document.getElementById('userDescription').value;
+    let usericon = document.getElementById('userIcon').value;
+    let userjs = document.getElementById('userJavascript').value;
+    let userColor = document.getElementById('userColor').value;
+    let userUrl = document.getElementById('userUrl').value;
+    let userHtml = document.getElementById('userHtml').value;
+    let usermeta = {
+      title: usertitle,
+      description: userdescription,
+      author: userauthor,
+      icon: usericon,
+      local: true,
+    }
+  if(document.getElementById('command').checked){
+    appye.createCommand(
+    userid,
+    userjs,
+    usermeta
+    )
+  } else if (document.getElementById('app').checked && document.getElementById('URL').checked){
+    appye.createApp(
+      userid,
+      {
+        title: usertitle,
+        url: userUrl,
+        background: userColor,
+        icon: usericon
+      },
+      usermeta
+    )
+  } else if (document.getElementById('app').checked && document.getElementById('HTML').checked){
+    appye.createApp(
+      userid,
+      {
+        title: usertitle,
+        html: userHtml,
+        background: userColor,
+        icon: usericon
+      },
+      usermeta
+    )
+  }
+ 
+if(document.getElementById('app').checked){
+  db.apps[userid].icon = usericon
+  db.meta.apps[userid].icon = usericon
+ }
+  }
+</script>
+<body class="appye">
+
+  <div id="startDiv">
+    <h1>Let's create something!</h1>
+    <h3>Give it a name!</h3>
+    <input id="userTitle" placeholder="Google" class="apppyeinput"></input>
+    <h3>Give an ID (no spaces)</h3>
+    <input id="userID" placeholder="google_search" class="apppyeinput"></input>
+    <h3>Who made this?</h3>
+    <input id="userAuthor" placeholder="Google Inc." class="apppyeinput"></input>
+    <h3>What's it about?</h3>
+    <textarea id="userDescription" placeholder="The Google search engine." class="apppyeinput"></textarea>
+    <h3>An icon for it?</h3>
+    <input id="userIcon" placeholder="https://www.google.com/favicon.ico" class="apppyeinput"></input>
+    <br>
+    <button class="appyebutton" style="cursor:pointer;" title="Continue to the next page." onclick="showHideDiv('detailDiv','startDiv');"> <span class="material-symbols-outlined">arrow_forward</span></button> 
+  </div>
+
+  <div id="detailDiv" class="hideme">
+    <h1>Let's get the details!</h1>
+    <h3>What is it?</h3>
+    <input type="radio" onclick="showHideDiv('appOnly','commandOnly')"id="app" name="addType" value="App">
+    <label for="app">App</label><br>
+    <input type="radio" onclick="showHideDiv('commandOnly','appOnly')" id="command" name="addType" value="Command">
+    <label for="command">Command</label><br>
+
+    <div class="hideme" id="commandOnly">
+      <h3>Paste in your Javascript code, if you don't know what that is, see <a href="https://en.wikipedia.org/wiki/JavaScript">here</a></h3>
+      <textarea id="userJavascript" placeholder="alert(JSON.stringify(commandIn))" class="apppyeinput"></textarea>
+    </div>
+
+    <div class="hideme" id="appOnly">
+      <h3>Do you have a URL or HTML for this app?</h3>
+      <input type="radio" onclick="showHideDiv('urlOnly','htmlOnly')"id="URL" name="appType" value="URL">
+      <label for="URL">URL</label><br>
+      <input type="radio" onclick="showHideDiv('htmlOnly','urlOnly')" id="HTML" name="appType" value="HTML">
+      <label for="HTML">HTML</label><br>
+      
+      <div id="urlOnly" class="hideme">
+        <textarea id="userUrl" placeholder="https://www.google.com/?igu=1" class="apppyeinput"></textarea>
+      </div>
+
+      <div id="htmlOnly" class="hideme">
+        <textarea id="userHtml" placeholder="<h1>This is Google.</h1>" class="apppyeinput"></textarea>
+      </div>
+      <h3>Pick a color to stylize your app window!</h3>
+      <input id="userColor"type="color"/>
+    </div>
+
+
+    <button class="appyebutton" style="cursor:pointer;" title="Continue to the next page." onclick="showHideDiv('startDiv','detailDiv');"> <span class="material-symbols-outlined">arrow_back</span></button>
+    <button class="appyebutton" style="cursor:pointer;" title="Create it!" onclick="userInterfaceCreate();"> <span class="material-symbols-outlined">check_small</span></button> 
+  </div>
+
+</body>

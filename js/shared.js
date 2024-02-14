@@ -1,5 +1,4 @@
 function cmd() {
-  var commandStart = "";
   commandIn = prompt("Command:");
   if (commandIn == "" || commandIn == " ") {
     alert("Hint: You can click the cancel button or press Escape.");
@@ -23,54 +22,29 @@ function intCmd(command) {
   time: commandTime
   };
 
+  if(commandStart.startsWith('$')){
+    eval(commandIn.fullCommand.replace('$',""));
+    return;
+  }
+  
   commandIn = JSON.stringify(commandIn);
-  console.log(commandIn);
 
   if(db.meta.commands[commandStart] && db.meta.commands[commandStart].local){
     eval(db.commands[commandStart]);
-  }
-
-  if (db.commands[commandStart]) {
+  } else if (db.commands[commandStart]) {
       dbUpdate();
       db.commands[commandStart](commandIn);
+      return;
   } else {
-    alert(`The ${commandStart} command dose not seem to exist.`);
-  }
-}
+    try {
+      eval(commandStart);
+    } catch(err) {
+      alert(err.message);
+    }
 
-idObj = {};
+  } 
+  }
 
-function hideDiv(id) {
-var tmpID = document.getElementById(id);
-var tmpIDText = document.getElementById(id + "Text");
-if (idObj[id]) {
-  idObj[id] = 0;
-  tmpID.style.display = 'none';
-  if(tmpIDText){
-    tmpIDText.style['font-style'] = 'italic';
-  }
-} else {
-  idObj[id] = 1;
-  tmpID.style.display = 'block';
-  if(tmpIDText){
-    tmpIDText.style['font-style'] = '';
-  }
-}}
-
-function showHideDiv(showId, hideIds) {
-  var elementToShow = document.getElementById(showId);
-  elementToShow.style.display = 'block';
-  
-  if (Array.isArray(hideIds)) {
-    hideIds.forEach(function(id) {
-      var elementToHide = document.getElementById(id);
-      elementToHide.style.display = 'none';
-    });
-  } else {
-    var elementToHide = document.getElementById(hideIds);
-    elementToHide.style.display = 'none';
-  }
-} 
 
 function getIcon(appName) {
   const iconMirrors = [
@@ -82,7 +56,7 @@ function getIcon(appName) {
     const iconUrl = `${mirror}${appName}_icon.png`;
     try {
       const request = new XMLHttpRequest();
-      request.open('GET', iconUrl, false);  // `false` makes the request synchronous
+      request.open('GET', iconUrl, false);  
       request.send(null);
 
       if (request.status === 200) {
@@ -93,8 +67,14 @@ function getIcon(appName) {
     }
   }
 
-  if (db.meta.apps[appName]?.icon) {
-    const iconUrl = db.meta.apps[appName].icon;
+  if (db.meta.apps[appName]?.icon || db.meta.commands?.icon) {
+    let iconUrl;
+    if(db.meta.apps[appName]?.icon){
+      iconUrl = db.meta.apps[appName].icon;
+    } else {
+      iconUrl = db.meta.commands[appName].icon;
+    }
+
     try {
       const request = new XMLHttpRequest();
       request.open('GET', iconUrl, false);  // `false` makes the request synchronous
@@ -115,17 +95,30 @@ function dbUpdate(){
   localStorage.setItem('db', JSON.stringify(db));
 }
 
-function showHideDiv(showIds, hideIds) {
-  if (Array.isArray(showIds)) {
-    showIds.forEach(function(id) {
-      var elementToShow = document.getElementById(id);
-      elementToShow.style.display = 'block';
-    });
+function clipBoardWrite(toWrite){
+  if (navigator.clipboard && window.isSecureContext) {
+   navigator.clipboard.writeText(toWrite);
+} else {
+   prompt("Please copy the following:",toWrite);
+}
+}
+
+let commandView = true;
+//resources for html:
+function toggleCommandView() {
+  if (commandView) {
+    showHideDiv('commandgrid','appgrid');
+    document.getElementById('commandgrid').style.display = 'grid';
   } else {
-    var elementToShow = document.getElementById(showIds);
-    elementToShow.style.display = 'block';
+    showHideDiv('appgrid','commandgrid');
+    document.getElementById('appgrid').style.display = 'grid';
   }
-  
+  commandView = !commandView; 
+}
+
+function showHideDiv(showId, hideIds) {
+  var elementToShow = document.getElementById(showId);
+  elementToShow.style.display = 'block';
   if (Array.isArray(hideIds)) {
     hideIds.forEach(function(id) {
       var elementToHide = document.getElementById(id);
@@ -134,25 +127,89 @@ function showHideDiv(showIds, hideIds) {
   } else {
     var elementToHide = document.getElementById(hideIds);
     elementToHide.style.display = 'none';
+    return;
   }
+} 
+function reloadWindow(command){
+  var winboxes = document.querySelectorAll('.winbox');
+  for (var i =  0; i < winboxes.length; i++) {
+    winboxes[i].remove();
+  }
+  intCmd(command);
 }
+function userInterfaceDo(type) {
+  let usertitle = document.getElementById('userTitle').value;
+  let userid = document.getElementById('userID').value;
+  let userauthor = document.getElementById('userAuthor').value;
+  let userdescription = document.getElementById('userDescription').value;
+  let usericon = document.getElementById('userIcon').value;
+  let userjs = document.getElementById('userJavascript').value;
+  let userColor = document.getElementById('userColor').value;
+  let userUrl = document.getElementById('userUrl').value;
+  let userHtml = document.getElementById('userHtml').value;
+  let usermeta = {
+    title: usertitle,
+    description: userdescription,
+    author: userauthor,
+    icon: usericon,
+    local: true,
+  };
 
-function remove(app,type){
-  switch(type){
-    case command:
-      delete db.commands[app];
-      delete db.meta.commands[app];
-    break;
+  if (type == "create") {
+    if (document.getElementById('command').checked) {
+      appye.createCommand(userid, userjs, usermeta);
+    } else if (document.getElementById('app').checked && document.getElementById('URL').checked) {
+      appye.createApp(userid, {
+        title: usertitle,
+        url: userUrl,
+        background: userColor,
+        icon: usericon
+      }, usermeta);
+    } else if (document.getElementById('app').checked && document.getElementById('HTML').checked) {
+      appye.createApp(userid, {
+        title: usertitle,
+        html: userHtml,
+        background: userColor,
+        icon: usericon
+      }, usermeta);
+    }
 
-    case app:
-      delete db.apps[app];
-      delete db.meta.apps[app];
-    break;
+    if (document.getElementById('app').checked) {
+      db.apps[userid].icon = usericon;
+      db.meta.apps[userid].icon = usericon;
+    }
+    alert(`${usertitle} has been created. All windows will close now.`);
+    reloadWindow('ls');
+  }
 
-    case flag:
-      delete db.flags[app];
-      delete db.meta.flags[app];
-      break;
+  if (type == "copy") {
+    if (document.getElementById('command').checked) {
+      clipBoardWrite(`appye.createCommand('${userid}','${userjs}',${JSON.stringify(usermeta)})`);
+    } else if (document.getElementById('app').checked && document.getElementById('URL').checked) {
+      clipBoardWrite(`
+        appye.createApp(
+          '${userid}',
+          {
+            title: '${usertitle}',
+            url: '${userUrl}',
+            background: '${userColor}',
+            icon: '${usericon}'
+          },
+          ${JSON.stringify(usermeta)}
+        )`);
+    } else if (document.getElementById('app').checked && document.getElementById('HTML').checked) {
+      clipBoardWrite(`
+        appye.createApp(
+          '${userid}',
+          {
+            title: '${usertitle}',
+            html: '${userHtml.toString()}',
+            background: '${userColor}',
+            icon: '${usericon}'
+          },
+          ${JSON.stringify(usermeta)}
+        )`);
+    }
   }
 }
 
@@ -162,11 +219,6 @@ document.head.innerHTML += `
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,500;0,900;1,500;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <style>
-.appyeheading{
-color: #249000;
-font-weight: 800;
-user-select: none;
-}
 
 .appyebutton {
   font-family: 'Source Code Pro', monospace;
@@ -180,6 +232,24 @@ user-select: none;
   margin-top: 5px;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.innerappyebutton {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  border:none;
+  background-color: #0F0F0F;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.innerappyebutton:hover {
+  background-color: #272727;
 }
 
 .appyebutton:hover {
@@ -207,16 +277,26 @@ margin-right: 5px;
 }
 
 .apppyeinput {
-font-family: 'Source Code Pro', monospace;
-font-weight: 500;
-background-color: #272727;
-color: white;
-border-radius: 5px;
-margin-bottom: 5px;
-margin-top: 5px;
-margin-left: 5px;
-margin-right: 5px;
-}
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  background-color: #272727;
+  color: white;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border:none;
+  outline: none;
+  font-size: medium;
+  }
+
+.apppyeinput:focus{
+    background-color: #5a5858;
+    border:none;
+  }
+
 
 .hideme {
 display: none;
@@ -242,13 +322,13 @@ display: none;
 }
 
 .appimg {
+  margin-top: 5px;
   width: 80px;
   height: 80px;
   border-radius: 25px;
 }
 
 .appgrid {
-  display: grid;
   grid-template-columns: auto auto auto auto auto auto;
   margin: 0%;
   width: fit-content;

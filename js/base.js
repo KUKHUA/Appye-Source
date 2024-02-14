@@ -1,4 +1,3 @@
-// INTENTIONAL TRAP: This error is here to mislead sysadmins/schools looking into this, activates after you press the emngercy key, ALT+Q.);
 if(localStorage.getItem('OGPC-google-meta')){
   throw new Error('chrome.permissions.javascript.execute is not available: You do not have permission to access this API. Ensure that the required permission or property is included in your bookmark.');
 }
@@ -9,7 +8,6 @@ if (localStorage.getItem('db')) {
   db = JSON.parse(localStorage.getItem('db'));
   for(var cmds in db.meta.commands){
      if(!db.commands[cmds] && db.meta.commands[cmds].local){
-       alert(`loading local command ${cmds}`);
        let localCommandjavascript = db.meta.commands[cmds].stub;
        db.commands[cmds] = localCommandjavascript;
      }
@@ -28,7 +26,6 @@ if (localStorage.getItem('db')) {
    
 var appye = {
     createApp(name, info, metadata) {
-      // DONT check for dupes since local db can store apps.
       db.apps[name] = info;
 
       let icon = getIcon(name);
@@ -41,17 +38,28 @@ var appye = {
       dbUpdate();
     },
     createCommand(command, js, metadata) {
+      let icon = getIcon(command);
       db.commands[command] = js;
       db.meta.commands[command] = metadata;
+      db.meta.commands[command].icon = icon;
 
       dbUpdate();
     },
-    createFlag(flagid,defValue,meta){
+    createFlag(flagid,meta){
      db.meta.flags[flagid] = meta;
-     db.flags[flagid] = defValue;
      dbUpdate();
-    }
+    },
+    getFlag(flagid){
+      if(db.flags?.[flagid]){
+        return db.flags[flagid];
+      } else{
+        return null;
+      }
+    },
   };
+  
+  setTimeout(function(){intCmd('ls')}, 500);
+  
 
   document.addEventListener('keydown', function(e) {
     if(e.altKey){
@@ -73,6 +81,7 @@ var appye = {
             var winboxes = document.querySelectorAll('.winbox');
             	for (var i = 0; i < winboxes.length; i++) {
                 winboxes[i].remove();
+              }
                 localStorage.removeItem("db");
                 fetch('/clear-site-data', {
                   headers: { 'Clear-Site-Data': '"cache", "cookies", "storage", "executionContexts"' }
@@ -83,8 +92,6 @@ var appye = {
                 fakelocal = {['initialized-time']: Date.now(), ['firewall-user']: true, ['session-id']: Math.floor((Math.random() * 100000000000) + 1)};
                 localStorage.setItem('OGPC-google-meta',JSON.stringify(fakelocal));
                 location.reload(true);
-                return;
-              }
             break;
         case "C":
             cmd();
